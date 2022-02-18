@@ -1,0 +1,54 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #180052;
+  color: #FFF;
+  height: 300px;
+  font-family: "Montserrat", sans-serif;
+  width: 100vw;
+}
+.footer .firstBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.footer .firstBlock .politcs {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.footer .firstBlock .politcs a {
+  color: #FFF;
+}
+.footer .secondBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.footer .secondBlock .socials {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
+.footer .secondBlock .socials .socialNetwork {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  margin-top: 10px;
+}
+.footer .secondBlock .download .appStore {
+  margin: 10px 0px;
+}
+.footer .secondBlock .developer {
+  margin: 10px 0px;
+}
+.footer .secondBlock .developer a {
+  color: #FFF;
+}
+
+/*# sourceMappingURL=footer.css.map */

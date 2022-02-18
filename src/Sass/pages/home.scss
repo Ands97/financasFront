@@ -1,0 +1,229 @@
+@import "../colors/colors.scss";
+
+.body{
+    margin: 20px 80px;
+    color: $primary;
+    font-family: 'Montserrat', sans-serif;
+    
+    .resumeMonth{
+        display: flex;
+        justify-content: space-between;
+        .months{
+            border: 2px solid $secondary;
+            width: 200px;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            color: $secondary;
+            font-weight: bold;
+            option{
+                font-weight: bold;
+            }
+        }
+    }
+    .cardsArea{
+        display: flex;
+        flex-wrap: wrap;
+        width: 87vw;
+        justify-content: space-around;
+        padding: 20px 0px;
+        
+    }
+    .moreInfo{
+        display: flex;
+        .chart{
+            box-shadow: 0 1px 5px 0px #cac6ce;
+            width: 50%;
+            height: 530px;
+            h3{
+                margin: 15px;
+                font-weight: bold;
+            }
+            .detailsInfo{
+                display: flex;
+                justify-content: end;
+                margin: 10px 25px;
+                
+                .details{
+                    border: 2px solid $secondary;
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    width: 160px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $secondary;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: $secondary;
+                        color: #FFF;
+                        transition: all 0.3s ease;
+                    }
+                }
+            }
+        }
+        .statement{
+            box-shadow: 0 1px 5px 0px #cac6ce;
+            width: 50%;
+            height: 530px;
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            h3{
+                margin: 15px;
+                font-weight: bold;
+            }
+            .statementArea{
+                height: 77%;
+                overflow: hidden;
+                .statementInfo{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 15px;
+                    height: 50px;
+                    overflow: hidden;
+                    font-weight: bold;
+                    span{
+                        margin-right: 10px;
+                        width: 25%;
+                    }
+                    .purchaseInfo{
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
+                        border-left: 1px solid $gray;
+                        margin-right: 10px;
+                        padding: 5px;
+                        width: 70%;
+                        font-size: 12px;
+                    }
+                    .purchaseData{
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
+                        border-left: 1px solid $gray;
+                        margin-right: 10px;
+                        padding: 5px;
+                        width: 15%;
+                        .account{
+                            font-size: 12px;
+                        }
+                        .value{
+                            font-weight: bolder;
+                        }
+                    }
+                }
+            }
+            .statementButtons{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                .seeStatement{
+                    border: 2px solid $secondary;
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    width: 160px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $secondary;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: $secondary;
+                        color: #FFF;
+                        transition: all 0.3s ease;
+                    }
+                }
+                .addTransaction{
+                    border: 2px solid $secondary;
+                    padding: 10px;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    width: 160px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #FFF;
+                    background-color: $secondary;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #FFF;
+                        color: $secondary;
+                        transition: all 0.3s ease;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 820px){
+    .body{
+        margin: 20px 0 20px 20px;
+        .resumeMonth{
+            flex-direction: column;
+            width: 90vw;
+            .months{
+                width: 88vw;
+                padding: 5px;
+                margin-top: 10px;
+            }
+        }
+        .cardsArea{
+            padding: 10px 0px;
+        }
+        .moreInfo{
+            flex-direction: column;
+            width: 95%;
+            padding: 10px 0px;
+            .chart{
+                width: 96%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 520px;
+                .chartOriginal{
+                    width: 90%;
+                }
+            }
+            .statement{
+                width: 96%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 520px;
+                margin-left: 0;
+                margin-top: 10px;
+                
+                .statementArea{
+                    width: 100%;
+                    .statementInfo{
+                        flex-direction: column;
+                        align-items: flex-start;
+                        height: 150px;
+                        width: 100%;
+                        .purchaseInfo{
+                            width: 85%;
+                        }
+                        .purchaseData{
+                            width: 85%;
+                        }
+
+                    }
+                    
+                }
+                .statementButtons{
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                    .seeStatement{
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+    
+}

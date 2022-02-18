@@ -1,0 +1,221 @@
+.body {
+  margin: 20px 80px;
+  color: #180052;
+  font-family: "Montserrat", sans-serif;
+}
+.body .resumeMonth {
+  display: flex;
+  justify-content: space-between;
+}
+.body .resumeMonth .months {
+  border: 2px solid #003483;
+  width: 200px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  color: #003483;
+  font-weight: bold;
+}
+.body .resumeMonth .months option {
+  font-weight: bold;
+}
+.body .cardsArea {
+  display: flex;
+  flex-wrap: wrap;
+  width: 87vw;
+  justify-content: space-around;
+  padding: 20px 0px;
+}
+.body .moreInfo {
+  display: flex;
+}
+.body .moreInfo .chart {
+  box-shadow: 0 1px 5px 0px #cac6ce;
+  width: 50%;
+  height: 530px;
+}
+.body .moreInfo .chart h3 {
+  margin: 15px;
+  font-weight: bold;
+}
+.body .moreInfo .chart .detailsInfo {
+  display: flex;
+  justify-content: end;
+  margin: 10px 25px;
+}
+.body .moreInfo .chart .detailsInfo .details {
+  border: 2px solid #003483;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #003483;
+  cursor: pointer;
+}
+.body .moreInfo .chart .detailsInfo .details:hover {
+  background-color: #003483;
+  color: #FFF;
+  transition: all 0.3s ease;
+}
+.body .moreInfo .statement {
+  box-shadow: 0 1px 5px 0px #cac6ce;
+  width: 50%;
+  height: 530px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.body .moreInfo .statement h3 {
+  margin: 15px;
+  font-weight: bold;
+}
+.body .moreInfo .statement .statementArea {
+  height: 77%;
+  overflow: hidden;
+}
+.body .moreInfo .statement .statementArea .statementInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  height: 50px;
+  overflow: hidden;
+  font-weight: bold;
+}
+.body .moreInfo .statement .statementArea .statementInfo span {
+  margin-right: 10px;
+  width: 25%;
+}
+.body .moreInfo .statement .statementArea .statementInfo .purchaseInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-left: 1px solid #cac6ce;
+  margin-right: 10px;
+  padding: 5px;
+  width: 70%;
+  font-size: 12px;
+}
+.body .moreInfo .statement .statementArea .statementInfo .purchaseData {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-left: 1px solid #cac6ce;
+  margin-right: 10px;
+  padding: 5px;
+  width: 15%;
+}
+.body .moreInfo .statement .statementArea .statementInfo .purchaseData .account {
+  font-size: 12px;
+}
+.body .moreInfo .statement .statementArea .statementInfo .purchaseData .value {
+  font-weight: bolder;
+}
+.body .moreInfo .statement .statementButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.body .moreInfo .statement .statementButtons .seeStatement {
+  border: 2px solid #003483;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #003483;
+  cursor: pointer;
+}
+.body .moreInfo .statement .statementButtons .seeStatement:hover {
+  background-color: #003483;
+  color: #FFF;
+  transition: all 0.3s ease;
+}
+.body .moreInfo .statement .statementButtons .addTransaction {
+  border: 2px solid #003483;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  background-color: #003483;
+  cursor: pointer;
+}
+.body .moreInfo .statement .statementButtons .addTransaction:hover {
+  background-color: #FFF;
+  color: #003483;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 820px) {
+  .body {
+    margin: 20px 0 20px 20px;
+  }
+  .body .resumeMonth {
+    flex-direction: column;
+    width: 90vw;
+  }
+  .body .resumeMonth .months {
+    width: 88vw;
+    padding: 5px;
+    margin-top: 10px;
+  }
+  .body .cardsArea {
+    padding: 10px 0px;
+  }
+  .body .moreInfo {
+    flex-direction: column;
+    width: 95%;
+    padding: 10px 0px;
+  }
+  .body .moreInfo .chart {
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 520px;
+  }
+  .body .moreInfo .chart .chartOriginal {
+    width: 90%;
+  }
+  .body .moreInfo .statement {
+    width: 96%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 520px;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .body .moreInfo .statement .statementArea {
+    width: 100%;
+  }
+  .body .moreInfo .statement .statementArea .statementInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    height: 150px;
+    width: 100%;
+  }
+  .body .moreInfo .statement .statementArea .statementInfo .purchaseInfo {
+    width: 85%;
+  }
+  .body .moreInfo .statement .statementArea .statementInfo .purchaseData {
+    width: 85%;
+  }
+  .body .moreInfo .statement .statementButtons {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .body .moreInfo .statement .statementButtons .seeStatement {
+    margin-bottom: 10px;
+  }
+}
+
+/*# sourceMappingURL=body.css.map */

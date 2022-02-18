@@ -1,0 +1,51 @@
+@import "../colors/colors.scss";
+.card{
+    display: flex;
+    width: 25vw;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    .infosCard{
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        padding: 5px;
+        justify-content: space-between;
+        height: 100%;
+        color: $light;
+        .title{
+            font-family: 'Roboto', sans-serif;
+            font-size: 25   px;
+        }
+    }
+    .icon{
+        background-color: $light;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+    }
+}
+.blue{
+    background-color: #0089B8;
+}
+.red{
+    background-color: #80150A;
+}
+.green{
+    background-color: $info;
+}
+
+@media screen and (max-width: 800px){
+    .card{
+        width: 80vw;
+        height: 80px;
+        margin-top: 10px;
+    }
+}
