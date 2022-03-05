@@ -13,7 +13,7 @@ export const AddTransaction = () => {
     }
 
     return (
-        <div className='addTransaction' style={{display: !showAddTransaction && 'none'}}>
+        <div className='addTransaction' style={{ display: !showAddTransaction && 'none' }}>
             <div className='modal'>
                 <div className='headerTransaction'>
                     <div className='closeIcon' onClick={closeMenu}>
@@ -28,23 +28,23 @@ export const AddTransaction = () => {
                         <span>Isso é uma: </span>
                         <label className='switch'>
                             Despesa
-                            <input type='checkbox'/> 
+                            <input type='checkbox' />
                             Receita
                         </label>
                     </div>
                     <div className='description'>
-                        <input type='text' required={true}/>
+                        <input type='text' required={true} />
                         <label>Descrição</label>
                     </div>
                     <div className='valueAndDate'>
                         <div className='transactionValue'>
-                            R$ <input type='text' placeholder='00,00' />
+                           R$ <input type='text' placeholder='00,00' />
                         </div>
                         <div className='date'>
-                            <input type='date' />
+                            Vencimento: <input type='date' />
                         </div>
                     </div>
-                    
+
                     <div className='payment'>
                         <select>
                             <option>Carteira</option>
@@ -52,16 +52,23 @@ export const AddTransaction = () => {
                             <option>Inter</option>
                         </select>
                     </div>
-                    <label>Pago?
-                        <input type='checkbox' />
-                    </label>
-                    <div className='category'>
-                        <select>
-                            <option>Alimentação</option>
-                            <option>Aluguel</option>
-                            <option>Carro</option>
-                        </select>
+                    <div className='paidAndCategory'>
+                        <div className='paid'>
+                            <label>Pago?</label>
+                            <input type='checkbox' />
+                        </div>
+                        <div className='category'>
+                            <select>
+                                <option>Alimentação</option>
+                                <option>Aluguel</option>
+                                <option>Carro</option>
+                            </select>
+                        </div>
                     </div>
+                    <div className='boxButton'>
+                        <div className='addButton'>Adicionar</div>
+                    </div>
+                    
                 </form>
 
             </div>

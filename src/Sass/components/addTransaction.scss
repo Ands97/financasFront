@@ -1,5 +1,6 @@
 @import "../colors/colors.scss";
-.addTransaction{
+
+.addTransaction {
     position: fixed;
     top: 0;
     right: 0;
@@ -10,79 +11,91 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    .closeIcon{
+
+    .closeIcon {
         cursor: pointer;
     }
-    .modal{
-        width: 20vw;
+
+    .modal {
+        width: 25vw;
         height: 100vh;
         background-color: #FFF;
         transition: all ease 0.5s;
         padding: 20px;
-        .headerTransaction{
+        font-size: larger;
+
+        .headerTransaction {
             display: flex;
             padding: 15px 0px;
             justify-content: space-between;
         }
-        form{
+
+        form {
             padding: 15px 0px;
-            .transactionType{
+
+            .transactionType {
                 display: flex;
                 flex-direction: column;
                 margin-bottom: 30px;
-                span{
+
+                span {
                     margin-bottom: 20px;
                 }
             }
+
             .switch {
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
                 --false: #E81B1B;
                 --true: #009068;
-               input[type=checkbox] {
-                -webkit-appearance: none;
-                   -moz-appearance: none;
-                        appearance: none;
-                height: 2rem;
-                width: 3.5rem;
-                background-color: $primary;
-                position: relative;
-                border-radius: .2em;
-                cursor: pointer;
-               }
-               
-               input[type=checkbox]::before {
-                content: '';
-                display: block;
-                height: 1.9em;
-                width: 1.9em;
-                -webkit-transform: translate(-50%, -50%);
+
+                input[type=checkbox] {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    height: 2rem;
+                    width: 3.5rem;
+                    background-color: $primary;
+                    position: relative;
+                    border-radius: .2em;
+                    cursor: pointer;
+                }
+
+                input[type=checkbox]::before {
+                    content: '';
+                    display: block;
+                    height: 1.9em;
+                    width: 1.9em;
+                    -webkit-transform: translate(-50%, -50%);
                     -ms-transform: translate(-50%, -50%);
-                        transform: translate(-50%, -50%);
-                position: absolute;
-                top: 50%;
-                left: calc(1.9em/2 + .3em);
-                background-color: var(--false);
-                border-radius: .2em;
-                -webkit-transition: .3s ease;
-                transition: .3s ease;
-               }
-               
-               input[type=checkbox]:checked::before {
-                background-color: var(--true);
-                left: calc(100% - (1.9em/2 + .3em));
-               }
+                    transform: translate(-50%, -50%);
+                    position: absolute;
+                    top: 50%;
+                    left: calc(1.9em/2 + .3em);
+                    background-color: var(--false);
+                    border-radius: .2em;
+                    -webkit-transition: .3s ease;
+                    transition: .3s ease;
+                }
+
+                input[type=checkbox]:checked::before {
+                    background-color: var(--true);
+                    left: calc(100% - (1.9em/2 + .3em));
+                }
             }
-            .description{
+
+            .description {
                 border-bottom: 1px solid;
                 height: 20px;
                 width: 100%;
                 padding: 0px 5px;
+                padding-bottom: 5px;
                 margin-top: 20px;
                 position: relative;
                 margin-bottom: 20px;
-                input{
+
+                input {
                     flex: 1;
                     border: 0;
                     outline: 0;
@@ -91,7 +104,8 @@
                     width: 100%;
                     font-size: 15px;
                 }
-                label{
+
+                label {
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -99,36 +113,116 @@
                     pointer-events: none;
                     transition: .5s;
                 }
-                input:focus ~ label, input:valid ~ label{
+
+                input:focus~label,
+                input:valid~label {
                     top: -20px;
                     left: 0;
                     font-size: 12px;
                 }
             }
-            .valueAndDate{
+
+            .valueAndDate {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                .transactionValue{
+
+                .transactionValue {
                     border-bottom: 1px solid;
                     height: 20px;
-                    width: 30%;
+                    width: 35%;
                     padding: 0px 5px;
                     margin-top: 30px;
                     position: relative;
                     margin-bottom: 20px;
-                    input{
+                    padding-bottom: 5px;
+                    input {
                         flex: 1;
                         border: 0;
                         outline: 0;
                         background-color: transparent;
                         font-family: 'Montserrat', sans-serif;
-                        width: 60%;
-                        font-size: 15px;
+                        width: 70%;
+                        font-size: 20px;
+                    }
+                }
+                .date{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 15px;
+                }
+            }
+
+            .payment {
+                margin: 30px 0px;
+
+                select {
+                    border: 2px solid $secondary;
+                    width: 100%;
+                    border-radius: 5px;
+                    font-family: 'Montserrat', sans-serif;
+                    color: $secondary;
+                    font-weight: bold;
+
+                    option {
+                        font-weight: bold;
                     }
                 }
             }
-            
+
+            .paidAndCategory {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .paid {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 40%;
+                }
+
+                .category {
+                    border: 2px solid $secondary;
+                    width: 50%;
+                    border-radius: 5px;
+                    font-family: 'Montserrat', sans-serif;
+                    color: $secondary;
+                    font-weight: bold;
+
+                    option {
+                        font-weight: bold;
+                    }
+                }
+
+            }
+
+            .boxButton {
+                width: 100%;
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .addButton {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                    border-radius: 5px;
+                    width: 50%;
+                    background-color: $primary;
+                    color: #FFF;
+                    cursor: pointer;
+                    transition: all ease .3s;
+                    &:hover{
+                        color: $primary;
+                        background-color: #FFF;
+                        border: 2px solid $primary;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
     }
-}
 }

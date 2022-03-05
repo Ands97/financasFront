@@ -14,11 +14,12 @@
   cursor: pointer;
 }
 .addTransaction .modal {
-  width: 20vw;
+  width: 25vw;
   height: 100vh;
   background-color: #FFF;
   transition: all ease 0.5s;
   padding: 20px;
+  font-size: larger;
 }
 .addTransaction .modal .headerTransaction {
   display: flex;
@@ -79,6 +80,7 @@
   height: 20px;
   width: 100%;
   padding: 0px 5px;
+  padding-bottom: 5px;
   margin-top: 20px;
   position: relative;
   margin-bottom: 20px;
@@ -100,7 +102,8 @@
   pointer-events: none;
   transition: 0.5s;
 }
-.addTransaction .modal form .description input:focus ~ label, .addTransaction .modal form .description input:valid ~ label {
+.addTransaction .modal form .description input:focus ~ label,
+.addTransaction .modal form .description input:valid ~ label {
   top: -20px;
   left: 0;
   font-size: 12px;
@@ -113,11 +116,12 @@
 .addTransaction .modal form .valueAndDate .transactionValue {
   border-bottom: 1px solid;
   height: 20px;
-  width: 30%;
+  width: 35%;
   padding: 0px 5px;
   margin-top: 30px;
   position: relative;
   margin-bottom: 20px;
+  padding-bottom: 5px;
 }
 .addTransaction .modal form .valueAndDate .transactionValue input {
   flex: 1;
@@ -125,8 +129,75 @@
   outline: 0;
   background-color: transparent;
   font-family: "Montserrat", sans-serif;
-  width: 60%;
-  font-size: 15px;
+  width: 70%;
+  font-size: 20px;
+}
+.addTransaction .modal form .valueAndDate .date {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+.addTransaction .modal form .payment {
+  margin: 30px 0px;
+}
+.addTransaction .modal form .payment select {
+  border: 2px solid #003483;
+  width: 100%;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  color: #003483;
+  font-weight: bold;
+}
+.addTransaction .modal form .payment select option {
+  font-weight: bold;
+}
+.addTransaction .modal form .paidAndCategory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.addTransaction .modal form .paidAndCategory .paid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
+.addTransaction .modal form .paidAndCategory .category {
+  border: 2px solid #003483;
+  width: 50%;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  color: #003483;
+  font-weight: bold;
+}
+.addTransaction .modal form .paidAndCategory .category option {
+  font-weight: bold;
+}
+.addTransaction .modal form .boxButton {
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addTransaction .modal form .boxButton .addButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  width: 50%;
+  background-color: #180052;
+  color: #FFF;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+.addTransaction .modal form .boxButton .addButton:hover {
+  color: #180052;
+  background-color: #FFF;
+  border: 2px solid #180052;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=addTransaction.css.map */
