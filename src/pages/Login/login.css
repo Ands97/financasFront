@@ -1,0 +1,107 @@
+.login {
+  font-family: "Montserrat", sans-serif;
+  height: 80vh;
+}
+.login .background {
+  width: 110%;
+  height: 200px;
+  transform: rotate(-7deg);
+  background-color: #180052;
+  position: relative;
+  top: -110px;
+  right: 20px;
+}
+.login .screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  top: 80px;
+}
+.login .screen .loginBox {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #e6ecf0;
+  padding: 10px;
+  border-radius: 5px;
+}
+.login .screen .loginBox form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login .screen .loginBox form .input {
+  border-bottom: 1px solid;
+  height: 20px;
+  width: 100%;
+  padding: 0px 5px;
+  margin-top: 20px;
+  position: relative;
+}
+.login .screen .loginBox form .input input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  font-size: 15px;
+}
+.login .screen .loginBox form .input label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.login .screen .loginBox form .input input:focus ~ label, .login .screen .loginBox form .input input:valid ~ label {
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+}
+.login .screen .loginBox form .forgotPassword {
+  padding: 10px;
+  margin-left: 10px;
+}
+.login .screen .loginBox form .forgotPassword a {
+  font-size: 13px;
+  margin-left: 50px;
+}
+.login .screen .loginBox form .button {
+  cursor: pointer;
+  background-color: #180052;
+  color: #FFF;
+  width: 50%;
+  border-radius: 10px;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.login .screen .loginBox .title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login .screen .loginBox .title h2 {
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+}
+.login .screen .loginBox .title h5 {
+  font-weight: bold;
+  padding: 5px;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=login.css.map */

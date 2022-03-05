@@ -53,7 +53,32 @@
             .profile{
                 cursor: pointer;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
+                .account{
+                    display: flex;
+                    align-items: center;
+                }
+                
+                
+            }
+            .logoutBlock{
+                position: absolute;
+                top: 73px;
+                right: 110px;
+                box-shadow: 0 1px 5px 0px #cac6ce;
+                background-color: #FFF;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 90px;
+                transition: all ease 0.3s;
+                cursor: pointer;
+                span{
+                    display: flex;
+                    align-items: center;   
+                }
             }
         }
         img{

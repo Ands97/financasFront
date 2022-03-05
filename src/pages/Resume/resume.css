@@ -135,7 +135,7 @@
   color: #FFF;
   transition: all 0.3s ease;
 }
-.body .moreInfo .statement .statementButtons .addTransaction {
+.body .moreInfo .statement .statementButtons .addTransactionButton {
   border: 2px solid #003483;
   padding: 10px;
   border-radius: 5px;
@@ -148,7 +148,7 @@
   background-color: #003483;
   cursor: pointer;
 }
-.body .moreInfo .statement .statementButtons .addTransaction:hover {
+.body .moreInfo .statement .statementButtons .addTransactionButton:hover {
   background-color: #FFF;
   color: #003483;
   transition: all 0.3s ease;

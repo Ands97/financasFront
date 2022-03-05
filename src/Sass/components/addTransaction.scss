@@ -1,0 +1,134 @@
+@import "../colors/colors.scss";
+.addTransaction{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 900;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .closeIcon{
+        cursor: pointer;
+    }
+    .modal{
+        width: 20vw;
+        height: 100vh;
+        background-color: #FFF;
+        transition: all ease 0.5s;
+        padding: 20px;
+        .headerTransaction{
+            display: flex;
+            padding: 15px 0px;
+            justify-content: space-between;
+        }
+        form{
+            padding: 15px 0px;
+            .transactionType{
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 30px;
+                span{
+                    margin-bottom: 20px;
+                }
+            }
+            .switch {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                --false: #E81B1B;
+                --true: #009068;
+               input[type=checkbox] {
+                -webkit-appearance: none;
+                   -moz-appearance: none;
+                        appearance: none;
+                height: 2rem;
+                width: 3.5rem;
+                background-color: $primary;
+                position: relative;
+                border-radius: .2em;
+                cursor: pointer;
+               }
+               
+               input[type=checkbox]::before {
+                content: '';
+                display: block;
+                height: 1.9em;
+                width: 1.9em;
+                -webkit-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                position: absolute;
+                top: 50%;
+                left: calc(1.9em/2 + .3em);
+                background-color: var(--false);
+                border-radius: .2em;
+                -webkit-transition: .3s ease;
+                transition: .3s ease;
+               }
+               
+               input[type=checkbox]:checked::before {
+                background-color: var(--true);
+                left: calc(100% - (1.9em/2 + .3em));
+               }
+            }
+            .description{
+                border-bottom: 1px solid;
+                height: 20px;
+                width: 100%;
+                padding: 0px 5px;
+                margin-top: 20px;
+                position: relative;
+                margin-bottom: 20px;
+                input{
+                    flex: 1;
+                    border: 0;
+                    outline: 0;
+                    background-color: transparent;
+                    font-family: 'Montserrat', sans-serif;
+                    width: 100%;
+                    font-size: 15px;
+                }
+                label{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-size: 16px;
+                    pointer-events: none;
+                    transition: .5s;
+                }
+                input:focus ~ label, input:valid ~ label{
+                    top: -20px;
+                    left: 0;
+                    font-size: 12px;
+                }
+            }
+            .valueAndDate{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .transactionValue{
+                    border-bottom: 1px solid;
+                    height: 20px;
+                    width: 30%;
+                    padding: 0px 5px;
+                    margin-top: 30px;
+                    position: relative;
+                    margin-bottom: 20px;
+                    input{
+                        flex: 1;
+                        border: 0;
+                        outline: 0;
+                        background-color: transparent;
+                        font-family: 'Montserrat', sans-serif;
+                        width: 60%;
+                        font-size: 15px;
+                    }
+                }
+            }
+            
+    }
+}
+}
