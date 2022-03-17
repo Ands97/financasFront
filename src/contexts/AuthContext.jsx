@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children})=>{
     
     const [token, setToken] = useState(null);
+    const [username, setUsername] = useState('')
     const api = useApi()
 
 
@@ -18,6 +19,7 @@ export const AuthProvider = ({children})=>{
         if(data.token){
             setToken(data.token);
             setTokenLocal(data.token)
+            setUsername(data.username)
             return true
         }
         return false;
@@ -36,7 +38,8 @@ export const AuthProvider = ({children})=>{
         <AuthContext.Provider value={{
            token,
            signin,
-           signout
+           signout,
+           username
         }}>
             {children}
         </AuthContext.Provider>

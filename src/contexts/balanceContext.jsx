@@ -1,23 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { useApi } from "../hooks/useApi";
 
 export const BalanceContext = createContext({});
 
 export const BalanceProvider = ({children})=>{
-    const [income, setIncome] = useState(50.50);
-    const [expense, setExpense] = useState(28.50);
+    const api = useApi()
+    
     const [showAddTransaction, setShowAddTransaction] = useState(false)
     
     const handleAddAction = ()=>{
         setShowAddTransaction(true)
     }
-
+    const getResume = async ()=>{
+        const data = await api.statementResumeApp();
+    }
+    
     return(
         <BalanceContext.Provider value={{
-            income,
-            expense,
             setShowAddTransaction,
             showAddTransaction,
-            handleAddAction
+            handleAddAction,
+            getResume
         }}>
             {children}
         </BalanceContext.Provider>

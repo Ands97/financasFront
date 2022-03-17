@@ -88,6 +88,9 @@
   margin-right: 10px;
   width: 25%;
 }
+.body .moreInfo .statement .statementArea .statementInfo .description {
+  width: 100%;
+}
 .body .moreInfo .statement .statementArea .statementInfo .purchaseInfo {
   display: flex;
   flex-direction: column;
@@ -218,4 +221,4 @@
   }
 }
 
-/*# sourceMappingURL=body.css.map */
+/*# sourceMappingURL=resume.css.map */

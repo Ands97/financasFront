@@ -132,6 +132,14 @@
   width: 70%;
   font-size: 20px;
 }
+.addTransaction .modal form .valueAndDate .transactionValue input[type=number]::-webkit-outer-spin-button,
+.addTransaction .modal form .valueAndDate .transactionValue input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.addTransaction .modal form .valueAndDate .transactionValue input[type=number] {
+  -moz-appearance: textfield;
+}
 .addTransaction .modal form .valueAndDate .date {
   width: 50%;
   display: flex;
@@ -164,14 +172,17 @@
   width: 40%;
 }
 .addTransaction .modal form .paidAndCategory .category {
-  border: 2px solid #003483;
   width: 50%;
+}
+.addTransaction .modal form .paidAndCategory .category select {
+  border: 2px solid #003483;
+  width: 100%;
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
   color: #003483;
   font-weight: bold;
 }
-.addTransaction .modal form .paidAndCategory .category option {
+.addTransaction .modal form .paidAndCategory .category select option {
   font-weight: bold;
 }
 .addTransaction .modal form .boxButton {

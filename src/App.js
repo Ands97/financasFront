@@ -7,9 +7,10 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
-import { AuthContext, AuthProvider } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext';
 import { RequireAuth } from './components/RequireAuth';
 import NotFound from './pages/NotFound';
+import { TransactionProvider } from './contexts/TransactionContext';
 
 
 
@@ -20,7 +21,8 @@ function App() {
   return (
     <AuthProvider>
       <BalanceProvider>
-        <div className="container" style={{ overflowX:'hidden'}}>
+        <TransactionProvider>
+          <div className="container" style={{ overflowX:'hidden'}}>
               <div>
                 <Routes>
                   <Route path='/' element={<Home />} />
@@ -31,6 +33,7 @@ function App() {
               </div>
             <Footer />
           </div>
+        </TransactionProvider>
       </BalanceProvider>
     </AuthProvider>
   );

@@ -8,17 +8,16 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { useState, useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom';
 
 
 
 const Header = () => {
 
     const auth = useContext(AuthContext);
-    const navigate = useNavigate()
 
     const [showOptions, setShowOptions] = useState(false);
     const [showOptionLogout, setShowOptionLogout] = useState(false)
+    
 
     const handleOptions = () => {
         if (showOptions) {
@@ -69,7 +68,7 @@ const Header = () => {
                         </div>
                         <div className='profile' onClick={handleOptionLogout}>
                             <div>
-                                <span className='account' style={{ height: showOptionLogout ? '30px' : '0px' }}><AccountCircleIcon style={{ color: '#003483' }} /> Anderson Afonso</span>
+                                <span className='account' style={{ height: showOptionLogout ? '30px' : '0px' }}><AccountCircleIcon style={{ color: '#003483' }} /> {auth.username}</span>
                             </div>
                         </div>
                         <div className='logoutBlock' style={{ display: showOptionLogout ? 'block' : 'none' }} onClick={logout}>
