@@ -14,12 +14,13 @@
   cursor: pointer;
 }
 .addTransaction .modal {
-  width: 25vw;
+  width: 0px;
   height: 100vh;
   background-color: #FFF;
   transition: all ease 0.5s;
   padding: 20px;
   font-size: larger;
+  overflow-x: hidden;
 }
 .addTransaction .modal .headerTransaction {
   display: flex;

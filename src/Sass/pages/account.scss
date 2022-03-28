@@ -1,0 +1,110 @@
+@import "../colors/colors.scss";
+
+    .account{
+        height: 100%;
+        font-family: 'Montserrat', sans-serif;
+        h1{
+            margin: 50px 70px;
+        }
+        .accountArea{
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 100px;
+            ul{
+                width: 80%;
+                li{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px 20px;
+                    border-bottom: 1px solid $gray;
+                    font-size: 18px;
+                    .icons{
+                        width: 8%;
+                        display: flex;
+                        justify-content: space-around;
+                        display: flex;
+                        .icon{
+                            cursor: pointer;
+                            padding: 5px;
+                            border-radius: 50%;
+                            justify-content: center;
+                            align-items: center;
+                            transition: all ease .3s;
+                            &:hover{
+                                background-color: $gray;
+                            }
+                        }
+                    }
+                }
+                .inputEdit {
+                    border-bottom: 1px solid $primary;
+                    height: 20px;
+                    width: 30%;
+                    padding: 0px 5px;
+                    padding-bottom: 5px;
+                    margin-top: 20px;
+                    position: relative;
+                    margin-bottom: 20px;
+                    input {
+                        flex: 1;
+                        border: 0;
+                        outline: 0;
+                        background-color: transparent;
+                        font-family: 'Montserrat', sans-serif;
+                        width: 100%;
+                        font-size: 20px;
+                        color: $primary;
+                    }
+                }
+            }
+            .inputArea{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 30px;
+                .inputAccount{
+                    border-bottom: 1px solid $primary;
+                    height: 20px;
+                    width: 30%;
+                    padding: 0px 5px;
+                    padding-bottom: 5px;
+                    margin-top: 20px;
+                    position: relative;
+                    margin-bottom: 20px;
+                    input{
+                        flex: 1;
+                        border: 0;
+                        outline: 0;
+                        background-color: transparent;
+                        font-family: 'Montserrat', sans-serif;
+                        width: 100%;
+                        font-size: 20px;
+                        color: $primary;
+                    }
+                }
+                button{
+                    padding: 10px;
+                    width: 20%;
+                    border-radius: 5px;
+                    background-color: $primary;
+                    color: #FFF;
+                    font-size: 20px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: bolder;
+                    transition: all ease .3s;
+                    cursor: pointer;
+                    &:hover {
+                        color: $primary;
+                        background-color: #FFF;
+                        border: 2px solid $primary;
+                        font-weight: bold;
+                    }
+                }
+            }
+            
+        }
+    }

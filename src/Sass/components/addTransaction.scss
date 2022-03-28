@@ -11,19 +11,17 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
     .closeIcon {
         cursor: pointer;
     }
-
     .modal {
-        width: 25vw;
+        width: 0px;
         height: 100vh;
         background-color: #FFF;
         transition: all ease 0.5s;
         padding: 20px;
         font-size: larger;
-
+        overflow-x: hidden;
         .headerTransaction {
             display: flex;
             padding: 15px 0px;

@@ -49,6 +49,9 @@
   display: flex;
   align-items: center;
 }
+.header .container .navigation .financialControl .financialOptions ul li a {
+  text-decoration: none;
+}
 .header .container .navigation .profile {
   cursor: pointer;
   display: flex;

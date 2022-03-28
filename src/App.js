@@ -11,6 +11,8 @@ import { AuthProvider } from './contexts/AuthContext';
 import { RequireAuth } from './components/RequireAuth';
 import NotFound from './pages/NotFound';
 import { TransactionProvider } from './contexts/TransactionContext';
+import { Account } from './pages/Account';
+import { Categories } from './pages/Categories';
 
 
 
@@ -28,6 +30,8 @@ function App() {
                   <Route path='/' element={<Home />} />
                   <Route path='/login' element={<Login/>} />
                   <Route path='/resume' element={<RequireAuth><Resume /></RequireAuth>} />
+                  <Route path='/accounts' element={<RequireAuth><Account/></RequireAuth>} />
+                  <Route path='/categories' element={<RequireAuth><Categories/></RequireAuth>} />
                   <Route path='*' element={<NotFound />} />
                 </Routes>
               </div>

@@ -16,11 +16,17 @@ import { useApi } from '../../hooks/useApi';
 const Resume = () => {
 
     const api = useApi()
-    const balance = useContext(BalanceContext);
+    const {
+        handleAddAction,
+        getResume,
+        statementResume,
+        getIncome,
+        income,
+        getExpense,
+        expense
+    } = useContext(BalanceContext);
 
-    const [statementResume, setStatementResume] = useState([]);
-    const [income, setIncome] = useState(0);
-    const [expense, setExpense] = useState(0);
+   
 
     const profit = income - expense;
     const data = [
@@ -32,23 +38,26 @@ const Resume = () => {
         ['Aluguel', 500],
     ];
 
-    const getResume = async () => {
-        let res = await api.statementResumeApp();
-        setStatementResume(res)
+    const resume = async () => {
+        await getResume();
     }
-    const getIncome = async ()=>{
-        const res = await api.getIncome()
-        setIncome(res)
+    const incomeResume = async ()=>{
+        await getIncome()
     }
-    const getExpense = async ()=>{
-        const res = await api.getExpense()
-        setExpense(res)
+    const expenseResume = async ()=>{
+        await getExpense()
+    }
+    const removeToken = ()=>{
+        setTimeout(()=>{
+            localStorage.removeItem('authToken')
+        }, 60000*30)//30 minutos para remover o token
     }
     useEffect(() => {
-        getResume()
-        getIncome()
-        getExpense()
-    }, [statementResume])
+        resume()
+        removeToken()
+        incomeResume()
+        expenseResume()
+    }, [])
     return (
         <>
             <Header />
@@ -101,11 +110,11 @@ const Resume = () => {
                                     <div className='statementInfo' key={index} style={{color: item.transactionType == false && 'red'}}>
                                         <span>{`${item.transactionDay}/${item.transactionMonth}/${item.transactionYear}`}</span>
                                         <div className='purchaseInfo'>
-                                            <span>Compra</span>
+                                            <span>{item.transactionCategory}</span>
                                             <span className='description'>{item.transactionDescription}</span>
                                         </div>
                                         <div className='purchaseData'>
-                                            <span className='account'>conta</span>
+                                            <span className='account'>{item.transactionAccount}</span>
                                             <span className='value'>R${item.transactionValue}</span>
                                         </div>
                                     </div>
@@ -113,7 +122,7 @@ const Resume = () => {
                             </div>
                             <div className='statementButtons'>
                                 <div className='seeStatement'>Ver Extrato</div>
-                                <div className='addTransactionButton' onClick={balance.handleAddAction}>Adicionar transação</div>
+                                <div className='addTransactionButton' onClick={handleAddAction}>Adicionar transação</div>
                             </div>
                         </div>
                     </div>

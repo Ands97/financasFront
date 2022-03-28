@@ -1,0 +1,109 @@
+.account {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+.account h1 {
+  margin: 50px 70px;
+}
+.account .accountArea {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.account .accountArea ul {
+  width: 80%;
+}
+.account .accountArea ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #cac6ce;
+  font-size: 18px;
+}
+.account .accountArea ul li .icons {
+  width: 8%;
+  display: flex;
+  justify-content: space-around;
+  display: flex;
+}
+.account .accountArea ul li .icons .icon {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: all ease 0.3s;
+}
+.account .accountArea ul li .icons .icon:hover {
+  background-color: #cac6ce;
+}
+.account .accountArea ul .inputEdit {
+  border-bottom: 1px solid #180052;
+  height: 20px;
+  width: 30%;
+  padding: 0px 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.account .accountArea ul .inputEdit input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  font-size: 20px;
+  color: #180052;
+}
+.account .accountArea .inputArea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+.account .accountArea .inputArea .inputAccount {
+  border-bottom: 1px solid #180052;
+  height: 20px;
+  width: 30%;
+  padding: 0px 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.account .accountArea .inputArea .inputAccount input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  font-size: 20px;
+  color: #180052;
+}
+.account .accountArea .inputArea button {
+  padding: 10px;
+  width: 20%;
+  border-radius: 5px;
+  background-color: #180052;
+  color: #FFF;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+.account .accountArea .inputArea button:hover {
+  color: #180052;
+  background-color: #FFF;
+  border: 2px solid #180052;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=account.css.map */

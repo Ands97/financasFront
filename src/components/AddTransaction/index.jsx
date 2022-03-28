@@ -5,15 +5,17 @@ import { TransactionContext } from '../../contexts/TransactionContext';
 import './addTransaction.css'
 
 export const AddTransaction = () => {
-    const addTransaction = useContext(TransactionContext);
+    const {addNewTransaction, accounts, categories, getAccounts, getCategories} = useContext(TransactionContext);
 
-    const { setShowAddTransaction, showAddTransaction } = useContext(BalanceContext);
+    const { setShowAddTransaction, showAddTransaction, getResume, getIncome, getExpense } = useContext(BalanceContext);
     
     const [transactionType, setTransactionType] = useState(false);
     const [transactionDescription, setTransactionDescription] = useState('');
     const [transactionValue, setTransactionValue] = useState('');
     const [transactionDate, setTransactionDate] = useState('');
     const [transactionStatus, setTransactionStatus] = useState(false);
+    const [accountSelected, setAccountSelected] = useState('');
+    const [categorySelected, setCategorySelected] = useState('')
     
     
 
@@ -27,12 +29,14 @@ export const AddTransaction = () => {
             transactionValue &&
             transactionDate
             ){
-                await addTransaction.addNewTransaction(
+                await addNewTransaction(
                     transactionType, 
                     transactionDescription,
                     transactionValue,
                     transactionDate,
-                    transactionStatus
+                    transactionStatus,
+                    categorySelected,
+                    accountSelected
                     )
             }
             setShowAddTransaction(false)
@@ -41,13 +45,20 @@ export const AddTransaction = () => {
             setTransactionValue('')
             setTransactionDate(new Date)
             setTransactionStatus(false)
+            setCategorySelected('')
+            setAccountSelected('')
+            getResume()
+            getIncome()
+            getExpense()
     }
 
-    
-    
+    useEffect(()=>{
+        getAccounts()
+        getCategories()
+    }, [])
     return (
-        <div className='addTransaction' style={{ display: !showAddTransaction && 'none' }}>
-            <div className='modal'>
+        <div className='addTransaction' style={{ width: showAddTransaction ? '100%' : '0px' }}>
+            <div className='modal' style={{ width: showAddTransaction ? '25vw' : '0px' }}>
                 <div className='headerTransaction'>
                     <div className='closeIcon' onClick={closeMenu}>
                         <CloseIcon />
@@ -89,10 +100,11 @@ export const AddTransaction = () => {
                     </div>
 
                     <div className='payment'>
-                        <select>
-                            <option>Carteira</option>
-                            <option>Nubank</option>
-                            <option>Inter</option>
+                        <select value={accountSelected} onChange={e=>setAccountSelected(e.target.value)}>
+                            <option>Selecione</option>
+                            {accounts.map((item)=>(
+                                <option value={item._id}>{item.account}</option>
+                            ))}
                         </select>
                     </div>
                     <div className='paidAndCategory'>
@@ -104,10 +116,12 @@ export const AddTransaction = () => {
                                 />
                         </div>
                         <div className='category'>
-                            <select>
-                                <option>Alimentação</option>
-                                <option>Aluguel</option>
-                                <option>Carro</option>
+                            <select value={categorySelected} onChange={e=>setCategorySelected(e.target.value)}>
+                                <option>Selecione</option>
+                                {categories.map((item)=>(
+                                    <option value={item._id}>{item.category}</option>
+                                ))}
+                                
                             </select>
                         </div>
                     </div>
