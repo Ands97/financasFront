@@ -14,6 +14,7 @@ export const useApi = ()=> ({
         description, 
         value, 
         date,
+        paymentDate,
         Tstatus,
         category,
         account,
@@ -25,6 +26,7 @@ export const useApi = ()=> ({
                 description, 
                 value, 
                 date,
+                paymentDate,
                 Tstatus,
                 category,
                 account

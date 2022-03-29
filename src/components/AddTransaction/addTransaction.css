@@ -211,5 +211,9 @@
   border: 2px solid #180052;
   font-weight: bold;
 }
+.addTransaction .modal form .paymentDate {
+  padding-top: 10px;
+  margin-top: 10px;
+}
 
 /*# sourceMappingURL=addTransaction.css.map */

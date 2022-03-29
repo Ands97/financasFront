@@ -9,6 +9,8 @@ import TrendingDownIcon from '@material-ui/icons/TrendingDown';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import { Chart } from 'react-google-charts';
 import Header from '../../components/Header';
+import Login from '../Login'
+
 import { useApi } from '../../hooks/useApi';
 
 
@@ -50,7 +52,13 @@ const Resume = () => {
     const removeToken = ()=>{
         setTimeout(()=>{
             localStorage.removeItem('authToken')
-        }, 60000*30)//30 minutos para remover o token
+        }, 60000*30)
+        return <Login/>//30 minutos para remover o token
+    }
+    const formatDate = (dateReceived)=>{
+        const date = new Date(dateReceived)
+        let dateFormated = date.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+        return dateFormated
     }
     useEffect(() => {
         resume()
@@ -65,11 +73,6 @@ const Resume = () => {
                 <AddTransaction />
                 <div className='resumeMonth'>
                     <h2>Resumo do mês:</h2>
-                    <select className='months'>
-                        <option>Fevereiro 2022</option>
-                        <option>Março 2022</option>
-                        <option>Abril 2022</option>
-                    </select>
                 </div>
                 <div className='cardsArea'>
                     <Card
@@ -108,7 +111,7 @@ const Resume = () => {
                             <div className='statementArea'>
                                 {statementResume.map((item, index) => (
                                     <div className='statementInfo' key={index} style={{color: item.transactionType == false && 'red'}}>
-                                        <span>{`${item.transactionDay}/${item.transactionMonth}/${item.transactionYear}`}</span>
+                                        <span>{formatDate(item.transactionPaymentDate)}</span>
                                         <div className='purchaseInfo'>
                                             <span>{item.transactionCategory}</span>
                                             <span className='description'>{item.transactionDescription}</span>

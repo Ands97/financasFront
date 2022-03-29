@@ -19,6 +19,7 @@ export const TransactionProvider = ({ children }) => {
         description,
         value,
         date,
+        paymentDate,
         Tstatus,
         category,
         account
@@ -28,6 +29,7 @@ export const TransactionProvider = ({ children }) => {
                 description,
                 value,
                 date,
+                paymentDate,
                 Tstatus,
                 category,
                 account,

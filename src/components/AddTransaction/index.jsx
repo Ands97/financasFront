@@ -5,10 +5,10 @@ import { TransactionContext } from '../../contexts/TransactionContext';
 import './addTransaction.css'
 
 export const AddTransaction = () => {
-    const {addNewTransaction, accounts, categories, getAccounts, getCategories} = useContext(TransactionContext);
+    const { addNewTransaction, accounts, categories, getAccounts, getCategories } = useContext(TransactionContext);
 
     const { setShowAddTransaction, showAddTransaction, getResume, getIncome, getExpense } = useContext(BalanceContext);
-    
+
     const [transactionType, setTransactionType] = useState(false);
     const [transactionDescription, setTransactionDescription] = useState('');
     const [transactionValue, setTransactionValue] = useState('');
@@ -16,43 +16,46 @@ export const AddTransaction = () => {
     const [transactionStatus, setTransactionStatus] = useState(false);
     const [accountSelected, setAccountSelected] = useState('');
     const [categorySelected, setCategorySelected] = useState('')
-    
-    
+    const [transactionPaymentDate, setTransactionPaymentDate] = useState('')
+
+
 
     const closeMenu = () => {
         setShowAddTransaction(false)
     }
 
-    const newTransaction = async ()=>{
-        if(
+    const newTransaction = async () => {
+        if (
             transactionDescription &&
             transactionValue &&
             transactionDate
-            ){
-                await addNewTransaction(
-                    transactionType, 
-                    transactionDescription,
-                    transactionValue,
-                    transactionDate,
-                    transactionStatus,
-                    categorySelected,
-                    accountSelected
-                    )
-            }
-            setShowAddTransaction(false)
-            setTransactionType(false)
-            setTransactionDescription('')
-            setTransactionValue('')
-            setTransactionDate(new Date)
-            setTransactionStatus(false)
-            setCategorySelected('')
-            setAccountSelected('')
-            getResume()
-            getIncome()
-            getExpense()
+        ) {
+            await addNewTransaction(
+                transactionType,
+                transactionDescription,
+                transactionValue,
+                transactionDate,
+                transactionPaymentDate,
+                transactionStatus,
+                categorySelected,
+                accountSelected
+            )
+        }
+        setShowAddTransaction(false)
+        setTransactionType(false)
+        setTransactionDescription('')
+        setTransactionValue('')
+        setTransactionDate('')
+        setTransactionPaymentDate('')
+        setTransactionStatus(false)
+        setCategorySelected('')
+        setAccountSelected('')
+        getResume()
+        getIncome()
+        getExpense()
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getAccounts()
         getCategories()
     }, [])
@@ -72,59 +75,65 @@ export const AddTransaction = () => {
                         <span>Isso é uma: </span>
                         <label className='switch'>
                             Despesa
-                            <input 
-                                type='checkbox'  
+                            <input
+                                type='checkbox'
                                 checked={transactionType}
-                                onChange={e=>setTransactionType(e.target.checked)}
+                                onChange={e => setTransactionType(e.target.checked)}
                                 name='uncontrolled'
                             />
                             Receita
                         </label>
                     </div>
                     <div className='description'>
-                        <input type='text' required={true} value={transactionDescription} onChange={e=>setTransactionDescription(e.target.value)}/>
+                        <input type='text' required={true} value={transactionDescription} onChange={e => setTransactionDescription(e.target.value)} />
                         <label>Descrição</label>
                     </div>
                     <div className='valueAndDate'>
                         <div className='transactionValue'>
-                            R$ <input 
-                                    type='number' 
-                                    placeholder='00,00' 
-                                    value={transactionValue} 
-                                    onChange={e=>setTransactionValue(e.target.value)}
-                                />
+                            R$ <input
+                                type='number'
+                                placeholder='00,00'
+                                value={transactionValue}
+                                onChange={e => setTransactionValue(e.target.value)}
+                            />
                         </div>
                         <div className='date'>
-                            Vencimento: <input type='date' value={transactionDate} onChange={e=>setTransactionDate(e.target.value)}/>
+                            Vencimento: <input type='date' value={transactionDate} onChange={e => setTransactionDate(e.target.value)} />
                         </div>
                     </div>
 
                     <div className='payment'>
-                        <select value={accountSelected} onChange={e=>setAccountSelected(e.target.value)}>
+                        <select value={accountSelected} onChange={e => setAccountSelected(e.target.value)}>
                             <option>Selecione</option>
-                            {accounts.map((item)=>(
-                                <option value={item._id}>{item.account}</option>
+                            {accounts.map((item) => (
+                                <option value={item.account}>{item.account}</option>
                             ))}
                         </select>
                     </div>
                     <div className='paidAndCategory'>
                         <div className='paid'>
                             <label>Pago?</label>
-                            <input type='checkbox' 
+                            <input type='checkbox'
                                 checked={transactionStatus}
-                                onChange={e=>setTransactionStatus(e.target.checked)}
-                                />
+                                onChange={e => setTransactionStatus(e.target.checked)}
+                            />
                         </div>
                         <div className='category'>
-                            <select value={categorySelected} onChange={e=>setCategorySelected(e.target.value)}>
+                            <select value={categorySelected} onChange={e => setCategorySelected(e.target.value)}>
                                 <option>Selecione</option>
-                                {categories.map((item)=>(
-                                    <option value={item._id}>{item.category}</option>
+                                {categories.map((item) => (
+                                    <option value={item.category}>{item.category}</option>
                                 ))}
-                                
+
                             </select>
                         </div>
+
                     </div>
+                    {transactionStatus &&
+                        <div className='paymentDate'>
+                            Pagamento: <input type='date' value={transactionPaymentDate} onChange={e => setTransactionPaymentDate(e.target.value)} />
+                        </div>
+                    }
                     <div className='boxButton'>
                         <div className='addButton' onClick={newTransaction}>Adicionar</div>
                     </div>

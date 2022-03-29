@@ -5,7 +5,7 @@ const Card = (props)=>{
         <div className={`card ${props.color}`}>
             <div className='infosCard'>
                 <span className="title">{props.title}</span>
-                <span>R${props.value}</span>
+                <span style={{color: props.value < 0 && 'red'}}>R${props.value}</span>
             </div>
             <div className="icon">
                 {props.children}
