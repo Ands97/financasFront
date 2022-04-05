@@ -123,15 +123,26 @@
 }
 .body .moreInfo .statement .statementButtons .seeStatement {
   border: 2px solid #003483;
-  padding: 10px;
   border-radius: 5px;
   font-weight: bold;
-  width: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #003483;
   cursor: pointer;
+}
+.body .moreInfo .statement .statementButtons .seeStatement a {
+  text-decoration: none;
+  color: #003483;
+  width: 160px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+.body .moreInfo .statement .statementButtons .seeStatement a:hover {
+  color: #FFF;
 }
 .body .moreInfo .statement .statementButtons .seeStatement:hover {
   background-color: #003483;

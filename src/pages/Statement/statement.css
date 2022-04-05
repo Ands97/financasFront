@@ -1,0 +1,145 @@
+.statementPage {
+  padding: 20px;
+  height: 100vh;
+  margin-top: 40px;
+}
+.statementPage .inputArea {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.statementPage .inputArea .input {
+  border-bottom: 1px solid #180052;
+  width: 20%;
+  height: 20px;
+  padding: 0px 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  /* clears the 'X' from Explorer */
+  /* clears the 'X' from Chrome */
+}
+.statementPage .inputArea .input input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  font-size: 20px;
+  color: #180052;
+}
+.statementPage .inputArea .input input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.statementPage .inputArea .input input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.statementPage .inputArea .input input[type=search]::-webkit-search-decoration,
+.statementPage .inputArea .input input[type=search]::-webkit-search-cancel-button,
+.statementPage .inputArea .input input[type=search]::-webkit-search-results-button,
+.statementPage .inputArea .input input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+.statementPage .inputArea .selectType {
+  border: 1px solid #180052;
+  width: 20%;
+  border-radius: 10px;
+  height: 25px;
+  display: flex;
+}
+.statementPage .inputArea .selectType select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+}
+.statementPage .inputArea .monthInput {
+  border: 1px solid #180052;
+  width: 20%;
+  border-radius: 10px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+}
+.statementPage .inputArea .monthInput input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  padding: 10px;
+}
+.statementPage .inputArea button {
+  padding: 10px;
+  border-radius: 5px;
+  height: 35px;
+  background-color: #FFF;
+  border: 2px solid #180052;
+  cursor: pointer;
+}
+.statementPage .statementPageArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #003483;
+}
+.statementPage .statementPageArea .statementDescriptions {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #cac6ce;
+  padding: 10px;
+}
+.statementPage .statementPageArea .statementDescriptions .date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #003483;
+  width: 15%;
+}
+.statementPage .statementPageArea .statementDescriptions .description {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-right: 1px solid #003483;
+  width: 35%;
+}
+.statementPage .statementPageArea .statementDescriptions .value {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-right: 1px solid #003483;
+  width: 12%;
+}
+.statementPage .statementPageArea .statementDescriptions .statementIconsPage {
+  display: flex;
+  justify-content: space-around;
+  width: 10%;
+}
+.statementPage .statementPageArea .statementDescriptions .statementIconsPage .delete {
+  cursor: pointer;
+}
+.statementPage .statementPageArea .statementDescriptions .statementIconsPage .edit {
+  cursor: pointer;
+}
+.statementPage .statementPageArea .summation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+/*# sourceMappingURL=statement.css.map */

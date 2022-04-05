@@ -124,15 +124,27 @@
                 justify-content: space-around;
                 .seeStatement{
                     border: 2px solid $secondary;
-                    padding: 10px;
                     border-radius: 5px;
                     font-weight: bold;
-                    width: 160px;
+                    
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     color: $secondary;
                     cursor: pointer;
+                    a{
+                        text-decoration: none;
+                        color: $secondary;
+                        width: 160px;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        &:hover{
+                            color: #FFF;
+                        }
+                    }
                     &:hover{
                         background-color: $secondary;
                         color: #FFF;

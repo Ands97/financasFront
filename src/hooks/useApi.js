@@ -80,4 +80,17 @@ export const useApi = ()=> ({
     updateCategory: async (id, title) => {
         await api.put(`/category/${id}`, {title}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
     },
+    getStatementForMonth: async (date, account, category) => {
+        let response = await api.post('/statementMonth', {date, account, category}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+        return response.data;
+    },
+    getIncomeMonth: async (date, account, category) => {
+        let response = await api.post('/statementIncome', {date, account, category}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+        return response.data;
+    },
+    getExpenseMonth: async (date, account, category) => {
+        let response = await api.post('/statementExpense', {date, account, category}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+        return response.data;
+    }
+
 });

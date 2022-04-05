@@ -12,6 +12,7 @@ import Header from '../../components/Header';
 import Login from '../Login'
 
 import { useApi } from '../../hooks/useApi';
+import {Link} from 'react-router-dom'
 
 
 
@@ -72,7 +73,7 @@ const Resume = () => {
             <div className='body'>
                 <AddTransaction />
                 <div className='resumeMonth'>
-                    <h2>Resumo do mês:</h2>
+                    <h2>Resumo:</h2>
                 </div>
                 <div className='cardsArea'>
                     <Card
@@ -107,7 +108,7 @@ const Resume = () => {
                             </div>
                         </div>
                         <div className='statement'>
-                            <h3>Extrato</h3>
+                            <h3>Últimas transações</h3>
                             <div className='statementArea'>
                                 {statementResume.map((item, index) => (
                                     <div className='statementInfo' key={index} style={{color: item.transactionType == false && 'red'}}>
@@ -124,7 +125,7 @@ const Resume = () => {
                                 ))}
                             </div>
                             <div className='statementButtons'>
-                                <div className='seeStatement'>Ver Extrato</div>
+                                <div className='seeStatement'><Link to='/statement'>Ver Extrato</Link></div>
                                 <div className='addTransactionButton' onClick={handleAddAction}>Adicionar transação</div>
                             </div>
                         </div>

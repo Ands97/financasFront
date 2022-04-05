@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { BalanceProvider } from './contexts/BalanceContext';
 
-import Header from './components/Header';
 import Footer from './components/Footer';
 
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
+import {Statement} from './pages/Statement'
 import { AuthProvider } from './contexts/AuthContext';
 import { RequireAuth } from './components/RequireAuth';
 import NotFound from './pages/NotFound';
@@ -32,6 +32,7 @@ function App() {
                   <Route path='/resume' element={<RequireAuth><Resume /></RequireAuth>} />
                   <Route path='/accounts' element={<RequireAuth><Account/></RequireAuth>} />
                   <Route path='/categories' element={<RequireAuth><Categories/></RequireAuth>} />
+                  <Route path='/statement' element={<RequireAuth><Statement/></RequireAuth>} />
                   <Route path='*' element={<NotFound />} />
                 </Routes>
               </div>

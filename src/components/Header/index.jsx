@@ -60,7 +60,7 @@ const Header = () => {
                                         <EqualizerIcon style={{ color: '#003483' }} /> <Link to='/resume'>Resumo</Link>
                                     </li>
                                     <li>
-                                        <AccountBalanceIcon style={{ color: '#003483' }} /> <Link to='#'>Extrato</Link>
+                                        <AccountBalanceIcon style={{ color: '#003483' }} /> <Link to='/statement'>Extrato</Link>
                                     </li>
                                     <li>
                                         <CreditCardIcon style={{ color: '#003483' }} /><Link to='/accounts'>Contas</Link> 
