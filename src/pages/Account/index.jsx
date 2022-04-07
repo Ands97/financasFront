@@ -9,8 +9,11 @@ import { ModalAccount } from '../../components/ModalAccount';
 
 
 export const Account = () => {
+
+    //Hook useApi
     const api = useApi()
 
+    //Contexts
     const {
         accounts,
         setAccounts,
@@ -21,15 +24,17 @@ export const Account = () => {
         getAccounts
     } = useContext(TransactionContext);
 
+    //States
     const [titleField, setTitleField] = useState('');
 
-
+    //Functions
     const getAccountId = async (id) => {
         let res = await api.getAccountid(id);
         setAccountId(res)
         setShowModalAccount(true)
 
     }
+
     const newAccount = async () => {
         if (titleField) {
             await api.newAccount(titleField);
@@ -45,6 +50,7 @@ export const Account = () => {
         getAccounts();
     }
 
+    //useEffect
     useEffect(() => {
         getAccounts()
     }, [])
@@ -81,7 +87,6 @@ export const Account = () => {
             <div style={{ display: showModalAccount ? 'block' : 'none' }}>
                 <ModalAccount />
             </div>
-
         </>
     )
 };

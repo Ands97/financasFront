@@ -20,8 +20,8 @@
         align-items: flex-start;
         top: 80px;
         .loginBox{
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
             display: flex;
             flex-direction: column;
             justify-content: start;
@@ -29,15 +29,19 @@
             background-color: #e6ecf0;
             padding: 10px;
             border-radius: 5px;
+            .title{
+                height: 35%;
+            }
             form{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                width: 100%;
                 .input{
                     border-bottom: 1px solid;
-                    height: 20px;
-                    width: 100%;
+                    height: 30px;
+                    width: 65%;
                     padding: 0px 5px;
                     margin-top: 20px;
                     position: relative;
@@ -48,7 +52,7 @@
                         background-color: transparent;
                         font-family: 'Montserrat', sans-serif;
                         width: 100%;
-                        font-size: 15px;
+                        font-size: 20px;
                     }
                     label{
                         position: absolute;
@@ -57,6 +61,7 @@
                         font-size: 16px;
                         pointer-events: none;
                         transition: .5s;
+                        color: rgb(85, 84, 84);
                     }
                 }
                 .input{
@@ -68,7 +73,8 @@
                 }
                 .forgotPassword{
                     padding: 10px;
-                    margin-left: 10px;
+                    margin-left: 80px;
+                    margin-top: 10px;
                     a{
                         font-size: 13px;
                         margin-left: 50px;

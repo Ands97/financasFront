@@ -14,13 +14,14 @@ import { Link } from 'react-router-dom';
 
 
 const Header = () => {
-
+    //Contexts
     const auth = useContext(AuthContext);
 
+    //States
     const [showOptions, setShowOptions] = useState(false);
     const [showOptionLogout, setShowOptionLogout] = useState(false)
     
-
+    //Functions
     const handleOptions = () => {
         if (showOptions) {
             setShowOptions(false)
@@ -36,10 +37,12 @@ const Header = () => {
             setShowOptionLogout(true)
         }
     }
+    
     const logout = ()=>{
         localStorage.removeItem('authToken');
         window.location.href = window.location.href
     }
+
     return (
         <header className="header">
             {auth.token &&

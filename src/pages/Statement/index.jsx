@@ -6,8 +6,6 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useContext, useEffect, useState } from "react";
 import { TransactionContext } from "../../contexts/TransactionContext";
-import { MenuItem } from "@material-ui/core";
-import { Category } from "@material-ui/icons";
 import { useApi } from "../../hooks/useApi";
 
 export const Statement = ()=>{
@@ -19,8 +17,8 @@ export const Statement = ()=>{
     const [list, setList] = useState([]);
     const [accountSelected, setAccountSelected] = useState('');
     const [categorySelected, setCategorySelected] = useState('');
-    const [income, setIncome] = useState([]);
-    const [expense, setExpense] = useState([])
+    const [income, setIncome] = useState([0]);
+    const [expense, setExpense] = useState([0])
 
     const getStatementForMonth = async () => {
         const res = await api.getStatementForMonth(date, accountSelected, categorySelected)
@@ -29,21 +27,13 @@ export const Statement = ()=>{
     
     const getIncomeMonth = async () => {
         const res = await api.getIncomeMonth(date, accountSelected, categorySelected)
-        if(!res){
-            setIncome('0,00')
-        }else{
-            setIncome(res)
-        }
+        setIncome(res)
     }
-    console.log(income)
+    
     const getExpenseMonth = async () => {
         const res = await api.getExpenseMonth(date, accountSelected, categorySelected)
-        console.log(res)
-        if(!res){
-            setExpense('0,00')
-        }else{
-            setExpense(res)
-        }
+        setExpense(res)
+
     }
 
     const setFunctions = ()=>{
@@ -51,6 +41,13 @@ export const Statement = ()=>{
         getExpenseMonth()
         getIncomeMonth()
     }
+
+    const formatDate = (dateReceived)=>{
+        const date = new Date(dateReceived)
+        let dateFormated = date.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+        return dateFormated
+    }
+    const profit = income - expense;
 
     useEffect(()=>{
         getAccounts()
@@ -89,17 +86,15 @@ export const Statement = ()=>{
                 </div>
                 <div className="statementPageArea">
                     {list.map((item, index) => (
-                        <div className="statementDescriptions" key={index} style={{
-                            color: !item.transactionType && 'red'
-                            }}>
+                        <div className="statementDescriptions" key={index} style={{color: item.transactionType == 'expense' && 'red'}}>
                             <div className="date">
-                                {item.transactionPaymentDate}
+                                {formatDate(item.transactionPaymentDate)}
                             </div>
                             <div className="description">
                                 {item.transactionDescription}
                             </div>
-                            <div className="value">
-                                R${item.transactionValue}
+                            <div className="value" >
+                                R${item.transactionValue.toFixed(2).replace('.', ',')}
                             </div>
                             <div className="statementIconsPage">
                                 <div className="delete">
@@ -111,17 +106,15 @@ export const Statement = ()=>{
                             </div>
                         </div>
                     ))}
-                    
-                    
                     <div className="summation">
                         <div className="totalIncome">
-                            Receitas: R${income}
+                            Receitas: R${parseFloat(income).toFixed(2).replace('.', ',') }
                         </div>
                         <div className="totalExpense">
-                            Despesas: R${expense}
+                            Despesas: R${parseFloat(expense).toFixed(2).replace('.', ',')}
                         </div>
-                        <div className="totalBalance">
-                            Saldo: R${income - expense}
+                        <div className="totalBalance" style={{color: profit < 0 && 'red'}}>
+                            Saldo: R${profit.toFixed(2).replace('.', ',')}
                         </div>
                     </div>
                 </div>

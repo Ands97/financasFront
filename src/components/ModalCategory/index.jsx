@@ -4,13 +4,22 @@ import { useApi } from '../../hooks/useApi';
 import './modalCategory.css';
 
 export const ModalCategory = () => {
+    //Modal on category's page, modal to edit category
 
-    const {categoryId, setShowModalCategory, getCategories} = useContext(TransactionContext)
+    //Contexts
+    const {
+        categoryId, 
+        setShowModalCategory, 
+        getCategories
+    } = useContext(TransactionContext)
 
+    //Hook useApi
     const api = useApi();
     
+    //States
     const [titleField, setTitleField] = useState('');
 
+    //Functions
     const updateCategory = async() => {
         await api.updateCategory(categoryId._id, titleField);
         setShowModalCategory(false);

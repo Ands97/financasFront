@@ -22,7 +22,8 @@ export const TransactionProvider = ({ children }) => {
         paymentDate,
         Tstatus,
         category,
-        account
+        account,
+        acountDestination
         ) => {
             const data = await api.addTransaction(
                 type,
@@ -33,6 +34,7 @@ export const TransactionProvider = ({ children }) => {
                 Tstatus,
                 category,
                 account,
+                acountDestination,
                 token
             );
     }

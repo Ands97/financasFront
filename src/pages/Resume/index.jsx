@@ -13,6 +13,7 @@ import Login from '../Login'
 
 import { useApi } from '../../hooks/useApi';
 import {Link} from 'react-router-dom'
+import { TransactionContext } from '../../contexts/TransactionContext';
 
 
 
@@ -29,18 +30,15 @@ const Resume = () => {
         expense
     } = useContext(BalanceContext);
 
-   
+    const {accounts, getAccounts, getCategories} = useContext(TransactionContext)
+
+
+    const [accountSelected, setAccountSelected] = useState('');
+    const [accountIncome, setAccountIncome] = useState([]);
+    const [accountExpense, setAccountExpense] = useState([]);
 
     const profit = income - expense;
-    const data = [
-        ['Categoria', 'Valor'],
-        ['Alimentação', 150],
-        ['Energia', 70],
-        ['Água', 40],
-        ['Roupas', 400],
-        ['Aluguel', 500],
-    ];
-
+    
     const resume = async () => {
         await getResume();
     }
@@ -61,12 +59,30 @@ const Resume = () => {
         let dateFormated = date.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
         return dateFormated
     }
+    const getIncomeProfit = async () => {
+        const res = await api.getIncomeProfit(accountSelected)
+        setAccountIncome(res)
+    }
+    const getExpenseProfit = async () => {
+        const res = await api.getExpenseProfit(accountSelected)
+        setAccountExpense(res)
+    }
+
+    const accountProfit = accountIncome - accountExpense
+
+
     useEffect(() => {
         resume()
         removeToken()
         incomeResume()
         expenseResume()
+        getAccounts()
+        getCategories()
     }, [])
+    useEffect(()=>{
+        getIncomeProfit()
+        getExpenseProfit()
+    }, [accountSelected])
     return (
         <>
             <Header />
@@ -101,8 +117,24 @@ const Resume = () => {
                 <section>
                     <div className='moreInfo'>
                         <div className='chart'>
-                            <h3>Categorias:</h3>
-                            <Chart className='chartOriginal' chartType='PieChart' data={data} width={'100%'} height={'400px'} />
+                            <h3>Saldos por conta</h3>
+                            <div className='profitArea'>
+                                <div className='profit'>
+                                    <select value={accountSelected} onChange={e => setAccountSelected(e.target.value)}>
+                                        <option>Selecione</option>
+                                        {accounts.map((item, index)=>(
+                                            <option key={index} value={item.account} >{item.account}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                <Card
+                                    title={accountSelected}
+                                    color={'green'}
+                                    value={parseFloat(accountProfit).toFixed(2).replace('.', ',')}
+                                >
+                                     <AttachMoneyIcon style={{ color: '#57DBC5' }} />
+                                </Card>
+                            </div>
                             <div className='detailsInfo'>
                                 <div className='details'>Ver detalhes</div>
                             </div>
@@ -111,7 +143,7 @@ const Resume = () => {
                             <h3>Últimas transações</h3>
                             <div className='statementArea'>
                                 {statementResume.map((item, index) => (
-                                    <div className='statementInfo' key={index} style={{color: item.transactionType == false && 'red'}}>
+                                    <div className='statementInfo' key={index} style={{color: item.transactionType == 'expense' && 'red'}}>
                                         <span>{formatDate(item.transactionPaymentDate)}</span>
                                         <div className='purchaseInfo'>
                                             <span>{item.transactionCategory}</span>

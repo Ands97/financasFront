@@ -10,7 +10,6 @@ const Card = (props)=>{
             <div className="icon">
                 {props.children}
             </div>
-            
         </div>
     )
 }

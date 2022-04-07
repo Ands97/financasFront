@@ -4,13 +4,22 @@ import { useApi } from '../../hooks/useApi';
 import './modalAccount.css';
 
 export const ModalAccount = () => {
+    //Modal on Account's Page, modal to edit account.
 
-    const {accountId, setShowModalAccount, getAccounts} = useContext(TransactionContext)
+    //contexts
+    const {
+        accountId, 
+        setShowModalAccount, 
+        getAccounts
+    } = useContext(TransactionContext)
 
+    //Hook useApi
     const api = useApi();
     
+    //States
     const [titleField, setTitleField] = useState('');
 
+    //Functions
     const updateAccount = async() => {
         await api.updateAccount(accountId._id, titleField);
         setShowModalAccount(false);

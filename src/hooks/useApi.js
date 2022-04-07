@@ -18,6 +18,7 @@ export const useApi = ()=> ({
         Tstatus,
         category,
         account,
+        acountDestination,
         token
         ) => {
             const response = await api.post('/transaction',
@@ -29,7 +30,8 @@ export const useApi = ()=> ({
                 paymentDate,
                 Tstatus,
                 category,
-                account
+                account,
+                acountDestination
             },
             {headers:{'Authorization': `Bearer ${token}`}}
             )
@@ -91,6 +93,14 @@ export const useApi = ()=> ({
     getExpenseMonth: async (date, account, category) => {
         let response = await api.post('/statementExpense', {date, account, category}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
         return response.data;
+    },
+    getIncomeProfit: async (account) => {
+        let response = await api.post('/incomeProfit', {account}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+        return response.data
+    },
+    getExpenseProfit: async (account) => {
+        let response = await api.post('/expenseProfit', {account}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+        return response.data
     }
 
 });

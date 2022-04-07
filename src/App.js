@@ -27,7 +27,7 @@ function App() {
           <div className="container" style={{ overflowX:'hidden'}}>
               <div>
                 <Routes>
-                  <Route path='/' element={<Home />} />
+                  <Route path='/' element={<Login />} />
                   <Route path='/login' element={<Login/>} />
                   <Route path='/resume' element={<RequireAuth><Resume /></RequireAuth>} />
                   <Route path='/accounts' element={<RequireAuth><Account/></RequireAuth>} />

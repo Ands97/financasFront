@@ -10,8 +10,11 @@ import { ModalCategory } from '../../components/ModalCategory';
 
 
 export const Categories = () => {
+
+    //hook useApi
     const api = useApi()
 
+    //Contexts
     const {
         categories,
         setCategories,
@@ -21,15 +24,17 @@ export const Categories = () => {
         setCategoryId
     } = useContext(TransactionContext);
 
+    //States
     const [titleField, setTitleField] = useState('');
 
-
+    //Functions
     const getCategoryId = async (id) => {
         let res = await api.getCategoryId(id);
         setCategoryId(res)
         setShowModalCategory(true)
 
     }
+    
     const newCategory = async () => {
         if (titleField) {
             await api.newCategory(titleField);

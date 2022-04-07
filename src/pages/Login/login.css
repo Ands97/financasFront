@@ -21,8 +21,8 @@
   top: 80px;
 }
 .login .screen .loginBox {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -31,16 +31,20 @@
   padding: 10px;
   border-radius: 5px;
 }
+.login .screen .loginBox .title {
+  height: 35%;
+}
 .login .screen .loginBox form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 .login .screen .loginBox form .input {
   border-bottom: 1px solid;
-  height: 20px;
-  width: 100%;
+  height: 30px;
+  width: 65%;
   padding: 0px 5px;
   margin-top: 20px;
   position: relative;
@@ -52,7 +56,7 @@
   background-color: transparent;
   font-family: "Montserrat", sans-serif;
   width: 100%;
-  font-size: 15px;
+  font-size: 20px;
 }
 .login .screen .loginBox form .input label {
   position: absolute;
@@ -61,6 +65,7 @@
   font-size: 16px;
   pointer-events: none;
   transition: 0.5s;
+  color: #555454;
 }
 .login .screen .loginBox form .input input:focus ~ label, .login .screen .loginBox form .input input:valid ~ label {
   top: -20px;
@@ -69,7 +74,8 @@
 }
 .login .screen .loginBox form .forgotPassword {
   padding: 10px;
-  margin-left: 10px;
+  margin-left: 80px;
+  margin-top: 10px;
 }
 .login .screen .loginBox form .forgotPassword a {
   font-size: 13px;
