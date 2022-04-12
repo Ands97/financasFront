@@ -5,6 +5,10 @@ const api = axios.create({
 });
 
 export const useApi = ()=> ({
+    register: async (name, email, password) => {
+        const response = await api.post('/register', {name, email, password});
+        return response.data
+    },
     signin: async (email, password) => {
         const response = await api.post('/login', { email, password });
         return response.data;
@@ -81,6 +85,9 @@ export const useApi = ()=> ({
     },
     updateCategory: async (id, title) => {
         await api.put(`/category/${id}`, {title}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+    },
+    createSubCategory: async (id, subCat) => {
+        await api.put(`/subcategory/${id}`, {subCat}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
     },
     getStatementForMonth: async (date, account, category) => {
         let response = await api.post('/statementMonth', {date, account, category}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})

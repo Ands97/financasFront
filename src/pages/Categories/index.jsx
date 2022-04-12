@@ -26,6 +26,7 @@ export const Categories = () => {
 
     //States
     const [titleField, setTitleField] = useState('');
+    const [subCategory, setSubCategory] = useState('');
 
     //Functions
     const getCategoryId = async (id) => {
@@ -34,6 +35,13 @@ export const Categories = () => {
         setShowModalCategory(true)
 
     }
+    
+    const sendNewSubCat = async (id) => {
+        const newSubCat = api.createSubCategory(id, subCategory)
+        setSubCategory('')
+        getCategories()
+    }
+
     
     const newCategory = async () => {
         if (titleField) {
@@ -60,25 +68,42 @@ export const Categories = () => {
             <div className='category'>
                 <h1>Categorias:</h1>
                 <div className='categoryArea'>
-                    <ul>
+                    <div className='categoryListArea'>
                         {categories.map((item, index) => (
-                            <li key={item._id}>{item.category}
-                                <div className='icons'>
-                                    <div className='icon' onClick={()=>removeCategory(item._id)}>
-                                        <DeleteIcon style={{ color: '#003483' }} />
-                                    </div>
-                                    <div className='icon' onClick={()=>getCategoryId(item._id)}>
-                                        <EditIcon style={{ color: '#003483' }} />
+                            <div className='categoryListTotal'>
+                                <div key={index} className='categoryList'>
+                                    <div className='categoryItem'>
+                                        <details>
+                                            <summary>{item.category}</summary>
+                                            {item.subCategory.map((subcat) => (
+                                                <div className='subcategory'>- {subcat}</div>
+                                            ))}
+                                        </details>
+                                    </div> 
+                                    <div className='icons'>
+                                        <div className='icon' onClick={()=>removeCategory(item._id)}>
+                                            <DeleteIcon style={{ color: '#003483' }} />
+                                        </div>
+                                        <div className='icon' onClick={()=>getCategoryId(item._id)}>
+                                            <EditIcon style={{ color: '#003483' }} />
+                                        </div>
                                     </div>
                                 </div>
-                            </li>
+                                <div className='subcategoryArea' >
+                                    <div className='sendNewSub'>
+                                        <div className='inputSub'>
+                                            <input type='text' id={index} placeholder='Adicionar Subcategoria' value={subCategory} onChange={e=>setSubCategory(e.target.value)}/>
+                                        </div>
+                                        <button type='button' className='newSubCategory' onClick={()=>sendNewSubCat(item._id)}>Adicionar</button>
+                                    </div>
+                                </div>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                     <div className='inputArea'>
                         <div className='inputCategory'>
                             <input type='text' placeholder='Adicionar nova categoria' value={titleField} onChange={e => setTitleField(e.target.value)} />
                         </div>
-
                         <button type='button' className='newCategory' onClick={newCategory}>Adicionar</button>
                     </div>
                 </div>

@@ -25,8 +25,14 @@ export const AuthProvider = ({children})=>{
         return false;
     }
 
-    const signout = async (email, password) => {
-        await api.logout();
+    const register = async (name, email, password) => {
+        const data = await api.register(name, email, password);
+        if(data.token){
+            setToken(data.token);
+            setTokenLocal(data.token)
+            setUsername(data.username)
+            return true
+        }
         setToken(null)
     }
 
@@ -38,7 +44,7 @@ export const AuthProvider = ({children})=>{
         <AuthContext.Provider value={{
            token,
            signin,
-           signout,
+           register,
            username
         }}>
             {children}

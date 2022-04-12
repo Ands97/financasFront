@@ -12,29 +12,86 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 100px;
-            ul{
+            .categoryListArea{
                 width: 80%;
-                li{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 15px 20px;
+                .categoryListTotal{
                     border-bottom: 1px solid $gray;
-                    font-size: 18px;
-                    .icons{
-                        width: 8%;
+                    .categoryList{
                         display: flex;
-                        justify-content: space-around;
-                        display: flex;
-                        .icon{
-                            cursor: pointer;
-                            padding: 5px;
-                            border-radius: 50%;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 10px 20px;
+                        font-size: 18px;
+                        flex-wrap: wrap;
+                        .categoryItem{
+                            display: flex;
                             justify-content: center;
                             align-items: center;
-                            transition: all ease .3s;
-                            &:hover{
-                                background-color: $gray;
+                            .subcategory{
+                                padding: 0px;
+                                margin-left: 25px;
+                                margin-top: 15px;
+                            }
+                        }
+                        .icons{
+                            width: 8%;
+                            display: flex;
+                            justify-content: space-around;
+                            display: flex;
+                            .icon{
+                                cursor: pointer;
+                                padding: 5px;
+                                border-radius: 50%;
+                                justify-content: center;
+                                align-items: center;
+                                transition: all ease .3s;
+                                &:hover{
+                                    background-color: $gray;
+                                }
+                            }
+                        }
+                    }
+                    .subcategoryArea{
+                        padding: 0px 20px;
+                        margin-left: 20px;
+                        overflow-y: hidden;
+                        margin-bottom: 10px;
+                        transition: all ease 0.5s;
+                        
+                        .sendNewSub{
+                            display: flex;
+                            margin-top: 10px;
+                            .inputSub{
+                                border-bottom: 1px solid $primary;
+                                padding: 5px;
+                                input {
+                                    flex: 1;
+                                    border: 0;
+                                    outline: 0;
+                                    background-color: transparent;
+                                    font-family: 'Montserrat', sans-serif;
+                                    width: 100%;
+                                    font-size: 14px;
+                                    color: $primary;
+                                }
+                            }
+                            button {
+                                padding: 5px 10px;
+                                border-radius: 5px;
+                                background-color: $primary;
+                                color: #FFF;
+                                font-size: 14px;
+                                font-family: 'Montserrat', sans-serif;
+                                font-weight: bolder;
+                                transition: all ease .3s;
+                                cursor: pointer;
+                                margin-left: 8px;
+                                &:hover {
+                                    color: $primary;
+                                    background-color: #FFF;
+                                    border: 1px solid $primary;
+                                    font-weight: bold;
+                                }
                             }
                         }
                     }
@@ -59,6 +116,7 @@
                         color: $primary;
                     }
                 }
+                
             }
             .inputArea{
                 width: 100%;

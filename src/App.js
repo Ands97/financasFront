@@ -13,6 +13,7 @@ import NotFound from './pages/NotFound';
 import { TransactionProvider } from './contexts/TransactionContext';
 import { Account } from './pages/Account';
 import { Categories } from './pages/Categories';
+import { Register } from './pages/Register';
 
 
 
@@ -29,6 +30,7 @@ function App() {
                 <Routes>
                   <Route path='/' element={<Login />} />
                   <Route path='/login' element={<Login/>} />
+                  <Route path='/register' element={<Register />}/>
                   <Route path='/resume' element={<RequireAuth><Resume /></RequireAuth>} />
                   <Route path='/accounts' element={<RequireAuth><Account/></RequireAuth>} />
                   <Route path='/categories' element={<RequireAuth><Categories/></RequireAuth>} />

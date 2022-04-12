@@ -1,0 +1,118 @@
+@import "../colors/colors.scss";
+.register{
+    font-family: 'Montserrat', sans-serif;
+    height: 80vh;
+    .background{
+        width: 110%;
+        height: 200px;
+        transform: rotate(-7deg);
+        background-color: $primary;
+        position: relative;
+        top: -110px;
+        right: 20px;
+    }
+    .screen{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        top: 80px;
+        .registerBox{
+            width: 400px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            background-color: #e6ecf0;
+            padding: 20px;
+            border-radius: 5px;
+            .title{
+                height: 35%;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                .input{
+                    border-bottom: 1px solid;
+                    height: 30px;
+                    width: 65%;
+                    padding: 0px 5px;
+                    margin-top: 20px;
+                    position: relative;
+                    input{
+                        flex: 1;
+                        border: 0;
+                        outline: 0;
+                        background-color: transparent;
+                        font-family: 'Montserrat', sans-serif;
+                        width: 100%;
+                        font-size: 20px;
+                    }
+                    label{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        font-size: 16px;
+                        pointer-events: none;
+                        transition: .5s;
+                        color: rgb(85, 84, 84);
+                    }
+                }
+                .input{
+                    input:focus ~ label, input:valid ~ label{
+                        top: -20px;
+                        left: 0;
+                        font-size: 12px;
+                    }
+                }
+                .forgotPassword{
+                    padding: 10px;
+                    margin-left: 80px;
+                    margin-top: 10px;
+                    a{
+                        font-size: 13px;
+                        margin-left: 50px;
+                    }
+                    
+                }
+                .button{
+                    cursor: pointer;
+                    background-color: $primary;
+                    color: #FFF;
+                    width: 50%;
+                    border-radius: 10px;
+                    padding: 7px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 30px;
+                }
+            }
+            .title{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                h2{
+                    font-weight: bold;
+                    font-size: 30px;
+                    padding: 5px;
+                }
+                h5{
+                    font-weight: bold;
+                    padding: 5px;
+                    font-size: 20px;
+                }
+            }
+            
+            
+        }
+    }
+    
+}

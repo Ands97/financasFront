@@ -163,7 +163,9 @@ export const AddTransaction = () => {
                                 <select value={categorySelected} onChange={e => setCategorySelected(e.target.value)}>
                                     <option>Selecione a categoria</option>
                                     {categories.map((item) => (
-                                        <option value={item.category}>{item.category}</option>
+                                            <optgroup label={item.category}>
+                                             <option value={item.category}>{item.subCategory}</option>
+                                            </optgroup>
                                     ))}
 
                                 </select>
