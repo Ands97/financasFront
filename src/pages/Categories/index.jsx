@@ -35,14 +35,14 @@ export const Categories = () => {
         setShowModalCategory(true)
 
     }
-    
+
     const sendNewSubCat = async (id) => {
         const newSubCat = api.createSubCategory(id, subCategory)
         setSubCategory('')
         getCategories()
     }
 
-    
+
     const newCategory = async () => {
         if (titleField) {
             await api.newCategory(titleField);
@@ -78,23 +78,23 @@ export const Categories = () => {
                                             {item.subCategory.map((subcat) => (
                                                 <div className='subcategory'>- {subcat}</div>
                                             ))}
+                                            <div className='subcategoryArea' >
+                                                <div className='sendNewSub'>
+                                                    <div className='inputSub'>
+                                                        <input type='text' id={index} placeholder='Adicionar Subcategoria' value={subCategory} onChange={e => setSubCategory(e.target.value)} />
+                                                    </div>
+                                                    <button type='button' className='newSubCategory' onClick={() => sendNewSubCat(item._id)}>Adicionar</button>
+                                                </div>
+                                            </div>
                                         </details>
-                                    </div> 
+                                    </div>
                                     <div className='icons'>
-                                        <div className='icon' onClick={()=>removeCategory(item._id)}>
+                                        <div className='icon' onClick={() => removeCategory(item._id)}>
                                             <DeleteIcon style={{ color: '#003483' }} />
                                         </div>
-                                        <div className='icon' onClick={()=>getCategoryId(item._id)}>
+                                        <div className='icon' onClick={() => getCategoryId(item._id)}>
                                             <EditIcon style={{ color: '#003483' }} />
                                         </div>
-                                    </div>
-                                </div>
-                                <div className='subcategoryArea' >
-                                    <div className='sendNewSub'>
-                                        <div className='inputSub'>
-                                            <input type='text' id={index} placeholder='Adicionar Subcategoria' value={subCategory} onChange={e=>setSubCategory(e.target.value)}/>
-                                        </div>
-                                        <button type='button' className='newSubCategory' onClick={()=>sendNewSubCat(item._id)}>Adicionar</button>
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@ export const Categories = () => {
                 </div>
             </div>
             <div style={{ display: showModalCategory ? 'block' : 'none' }}>
-                <ModalCategory/>
+                <ModalCategory />
             </div>
 
         </>

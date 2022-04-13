@@ -1,14 +1,14 @@
 import Header from "../../components/Header"
 import './statement.css';
 import SearchIcon from '@material-ui/icons/Search';
-import {GrUpdate} from 'react-icons/gr';
+import { GrUpdate } from 'react-icons/gr';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useContext, useEffect, useState } from "react";
 import { TransactionContext } from "../../contexts/TransactionContext";
 import { useApi } from "../../hooks/useApi";
 
-export const Statement = ()=>{
+export const Statement = () => {
     const api = useApi()
 
     const { accounts, categories, getAccounts, getCategories } = useContext(TransactionContext);
@@ -24,46 +24,46 @@ export const Statement = ()=>{
         const res = await api.getStatementForMonth(date, accountSelected, categorySelected)
         setList(res)
     }
-    
+
     const getIncomeMonth = async () => {
         const res = await api.getIncomeMonth(date, accountSelected, categorySelected)
         setIncome(res)
     }
-    
+
     const getExpenseMonth = async () => {
         const res = await api.getExpenseMonth(date, accountSelected, categorySelected)
         setExpense(res)
 
     }
 
-    const setFunctions = ()=>{
+    const setFunctions = () => {
         getStatementForMonth()
         getExpenseMonth()
         getIncomeMonth()
     }
 
-    const formatDate = (dateReceived)=>{
+    const formatDate = (dateReceived) => {
         const date = new Date(dateReceived)
-        let dateFormated = date.toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+        let dateFormated = date.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
         return dateFormated
     }
     const profit = income - expense;
 
-    useEffect(()=>{
+    useEffect(() => {
         getAccounts()
         getCategories()
     }, [])
     return (
         <>
-            <Header/>
+            <Header />
             <div className="statementPage">
                 <div className="inputArea">
                     <div className="input">
-                        <input type='search' placeholder="Search"/><SearchIcon style={{color: '#180052'}}/>
+                        <input type='search' placeholder="Search" /><SearchIcon style={{ color: '#180052' }} />
                     </div>
                     <div className="selectType">
                         <select value={accountSelected} onChange={e => setAccountSelected(e.target.value)}>
-                            <option>Selecione a Conta</option>    
+                            <option>Selecione a Conta</option>
                             <option>Todas as Contas</option>
                             {accounts.map((item) => (
                                 <option value={item.account}>{item.account}</option>
@@ -75,18 +75,22 @@ export const Statement = ()=>{
                             <option>Selecione a Categoria</option>
                             <option>Todas as Categorias</option>
                             {categories.map((item) => (
-                                <option value={item.category}>{item.category}</option>
+                                <optgroup label={item.category}>
+                                    {item.subCategory.map((subCat) => (
+                                        <option value={subCat}>{subCat}</option>
+                                    ))}
+                                </optgroup>
                             ))}
                         </select>
                     </div>
                     <div className="monthInput">
-                        <input type='month' value={date} onChange={e=>setDate(e.target.value)}/>
+                        <input type='month' value={date} onChange={e => setDate(e.target.value)} />
                     </div>
-                    <button type="button" onClick={setFunctions}><GrUpdate/></button>
+                    <button type="button" onClick={setFunctions}><GrUpdate /></button>
                 </div>
                 <div className="statementPageArea">
                     {list.map((item, index) => (
-                        <div className="statementDescriptions" key={index} style={{color: item.transactionType == 'expense' && 'red'}}>
+                        <div className="statementDescriptions" key={index} style={{ color: item.transactionType == 'expense' && 'red' }}>
                             <div className="date">
                                 {formatDate(item.transactionPaymentDate)}
                             </div>
@@ -108,12 +112,12 @@ export const Statement = ()=>{
                     ))}
                     <div className="summation">
                         <div className="totalIncome">
-                            Receitas: R${parseFloat(income).toFixed(2).replace('.', ',') }
+                            Receitas: R${parseFloat(income).toFixed(2).replace('.', ',')}
                         </div>
                         <div className="totalExpense">
                             Despesas: R${parseFloat(expense).toFixed(2).replace('.', ',')}
                         </div>
-                        <div className="totalBalance" style={{color: profit < 0 && 'red'}}>
+                        <div className="totalBalance" style={{ color: profit < 0 && 'red' }}>
                             Saldo: R${profit.toFixed(2).replace('.', ',')}
                         </div>
                     </div>

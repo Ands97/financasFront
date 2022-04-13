@@ -7,19 +7,19 @@ import './addTransaction.css'
 export const AddTransaction = () => {
 
     //contexts
-    const { 
-        addNewTransaction, 
-        accounts, 
-        categories, 
-        getAccounts, 
-        getCategories 
+    const {
+        addNewTransaction,
+        accounts,
+        categories,
+        getAccounts,
+        getCategories
     } = useContext(TransactionContext);
 
-    const { 
-        setShowAddTransaction, 
-        showAddTransaction, 
-        getResume, getIncome, 
-        getExpense 
+    const {
+        setShowAddTransaction,
+        showAddTransaction,
+        getResume, getIncome,
+        getExpense
     } = useContext(BalanceContext);
 
 
@@ -41,7 +41,7 @@ export const AddTransaction = () => {
     }
 
     const newTransaction = async () => {
-        if(transactionType === 'transfer'){
+        if (transactionType === 'transfer') {
             setCategorySelected('transfer')
         }
         if (
@@ -97,7 +97,7 @@ export const AddTransaction = () => {
                     <div className='transactionType'>
                         <span>Isso é uma: </span>
                         <div className='payment'>
-                            <select value={transactionType} onChange={e=>setTransactionType(e.target.value)}>
+                            <select value={transactionType} onChange={e => setTransactionType(e.target.value)}>
                                 <option>Selecione</option>
                                 <option value='income'>Receita</option>
                                 <option value='expense'>Despesa</option>
@@ -122,7 +122,7 @@ export const AddTransaction = () => {
                             Vencimento: <input type='date' value={transactionDate} onChange={e => setTransactionDate(e.target.value)} />
                         </div>
                     </div>
-                    
+
                     <div className='payment'>
                         <select value={accountSelected} onChange={e => setAccountSelected(e.target.value)}>
                             <option>Selecione a conta</option>
@@ -141,7 +141,7 @@ export const AddTransaction = () => {
                                     ))}
                                 </select>
                             </div>
-                        </>  
+                        </>
                     }
                     <div className='paidAndCategory'>
                         <div className='paid'>
@@ -163,11 +163,12 @@ export const AddTransaction = () => {
                                 <select value={categorySelected} onChange={e => setCategorySelected(e.target.value)}>
                                     <option>Selecione a categoria</option>
                                     {categories.map((item) => (
-                                            <optgroup label={item.category}>
-                                             <option value={item.category}>{item.subCategory}</option>
-                                            </optgroup>
+                                        <optgroup label={item.category}>
+                                            {item.subCategory.map((subCat) => (
+                                                <option value={subCat}>{subCat}</option>
+                                            ))}
+                                        </optgroup>
                                     ))}
-
                                 </select>
                             </div>
                         }

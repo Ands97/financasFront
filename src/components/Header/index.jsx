@@ -29,6 +29,8 @@ const Header = () => {
             setShowOptions(false)
         } else {
             setShowOptions(true)
+            setShowOptionLogout(false)
+            setShowPaymentOption(false)
         }
     }
 
@@ -37,6 +39,17 @@ const Header = () => {
             setShowOptionLogout(false)
         } else {
             setShowOptionLogout(true)
+            setShowOptions(false)
+            setShowPaymentOption(false)
+        }
+    }
+    const handlePaymentOption = () => {
+        if (showPaymentOption) {
+            setShowPaymentOption(false)
+        } else {
+            setShowPaymentOption(true)
+            setShowOptions(false)
+            setShowOptionLogout(false)
         }
     }
 
@@ -57,19 +70,19 @@ const Header = () => {
                         <MenuIcon style={{ color: '#003483' }} />
                     </div>
                     <nav className='navigation'>
-                        <div className='payments'>
+                        <div className='payments' onClick={handlePaymentOption}>
                             <p>Pagamentos</p> <KeyboardArrowDownIcon style={{ color: '#003483' }} />
-
-                            <nav className='paymentOptions'>
-                                <ul>
-                                    <li><MdOutlinePayment style={{color: '#003483'}}/>Contas a Pagar </li>
-                                    <li><MdPayments style={{color: '#003483'}} />Contas a Receber</li>
+                        </div>
+                            <nav className='paymentOptions' style={{height: showPaymentOption ? '100px' : '0px'}}>
+                                <ul style={{ display: showPaymentOption ? 'block' : 'none' }}>
+                                    <li><MdOutlinePayment style={{color: '#003483'}}/><Link to='/billsToPay'>Contas a Pagar</Link> </li>
+                                    <li><MdPayments style={{color: '#003483'}} /><Link to='/billsToReceive'>Contas a Receber</Link></li>
                                 </ul>
                             </nav>
-                        </div>
+                        
                         <div className='financialControl' >
                             <div onClick={handleOptions} className='financialControlClick'><p>Controle</p> <KeyboardArrowDownIcon style={{ color: '#003483' }} /></div>
-                            <nav className='financialOptions' style={{ height: showOptions ? 'auto' : '0px' }}>
+                            <nav className='financialOptions' style={{ height: showOptions ? '170px' : '0px' }}>
                                 <ul style={{ display: showOptions ? 'block' : 'none' }}>
                                     <li>
                                         <EqualizerIcon style={{ color: '#003483' }} /> <Link to='/resume'>Resumo</Link>

@@ -22,8 +22,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
-.header .container .navigation .payments .paymentOptions {
+.header .container .navigation .payments p {
+  color: #180052;
+}
+.header .container .navigation .paymentOptions {
   overflow: hidden;
   transition: all ease 0.3s;
   position: absolute;
@@ -31,7 +35,7 @@
   right: 330px;
   padding: 3px 20px;
 }
-.header .container .navigation .payments .paymentOptions ul {
+.header .container .navigation .paymentOptions ul {
   box-shadow: 0 1px 5px 0px #cac6ce;
   background-color: #FFF;
   padding: 10px;
@@ -39,7 +43,7 @@
   justify-content: center;
   flex-direction: column;
 }
-.header .container .navigation .payments .paymentOptions ul li {
+.header .container .navigation .paymentOptions ul li {
   cursor: pointer;
   list-style-type: none;
   border-bottom: 1px solid #d7d5d8;
@@ -47,7 +51,7 @@
   display: flex;
   align-items: center;
 }
-.header .container .navigation .payments .paymentOptions ul li a {
+.header .container .navigation .paymentOptions ul li a {
   text-decoration: none;
 }
 .header .container .navigation .financialControl .financialControlClick {

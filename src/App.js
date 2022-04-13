@@ -14,6 +14,9 @@ import { TransactionProvider } from './contexts/TransactionContext';
 import { Account } from './pages/Account';
 import { Categories } from './pages/Categories';
 import { Register } from './pages/Register';
+import { BillsToPay } from './pages/BillsToPay';
+import { BillsToReceive } from './pages/BillsToReceive';
+
 
 
 
@@ -35,6 +38,8 @@ function App() {
                   <Route path='/accounts' element={<RequireAuth><Account/></RequireAuth>} />
                   <Route path='/categories' element={<RequireAuth><Categories/></RequireAuth>} />
                   <Route path='/statement' element={<RequireAuth><Statement/></RequireAuth>} />
+                  <Route path='/billsToPay' element={<RequireAuth><BillsToPay/></RequireAuth>} />
+                  <Route path='/billsToReceive' element={<RequireAuth><BillsToReceive/></RequireAuth>} />
                   <Route path='*' element={<NotFound />} />
                 </Routes>
               </div>

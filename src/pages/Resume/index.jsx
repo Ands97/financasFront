@@ -151,7 +151,7 @@ const Resume = () => {
                                         </div>
                                         <div className='purchaseData'>
                                             <span className='account'>{item.transactionAccount}</span>
-                                            <span className='value'>R${item.transactionValue}</span>
+                                            <span className='value'>R${parseFloat(item.transactionValue).toFixed(2).replace('.', ',') }</span>
                                         </div>
                                     </div>
                                 ))}
