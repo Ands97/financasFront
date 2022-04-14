@@ -11,9 +11,11 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
     .closeIcon {
         cursor: pointer;
     }
+
     .modal {
         width: 0px;
         height: 100vh;
@@ -22,6 +24,7 @@
         padding: 20px;
         font-size: larger;
         overflow-x: hidden;
+
         .headerTransaction {
             display: flex;
             padding: 15px 0px;
@@ -144,14 +147,16 @@
                         width: 70%;
                         font-size: 20px;
                     }
+
                     input[type="number"]::-webkit-outer-spin-button,
                     input[type="number"]::-webkit-inner-spin-button {
                         -webkit-appearance: none;
                         margin: 0;
                     }
+
                     input[type="number"] {
                         -moz-appearance: textfield;
-}
+                    }
                 }
 
                 .date {
@@ -189,7 +194,7 @@
                     align-items: center;
                     justify-content: space-between;
                     width: 40%;
-                   
+
                 }
 
                 .category {
@@ -208,7 +213,7 @@
                         }
                     }
                 }
-                   
+
             }
 
             .boxButton {
@@ -239,10 +244,10 @@
                 }
             }
 
-            .paymentDate{
+            .paymentDate {
                 padding-top: 10px;
                 margin-top: 10px;
-            }   
+            }
         }
     }
 }

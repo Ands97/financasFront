@@ -1,0 +1,27 @@
+@import "../colors/colors.scss";
+.containerB{
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    .billsToPayArea{
+        height: auto;
+        margin-top: 70px;
+        .legend{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .billsToPayList{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 30px;
+            padding: 15px 5px;
+            border-bottom: 1px solid $gray;
+            .icon{
+                cursor: pointer;
+            }
+        }
+    }
+}

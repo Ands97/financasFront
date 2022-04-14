@@ -108,6 +108,21 @@ export const useApi = ()=> ({
     getExpenseProfit: async (account) => {
         let response = await api.post('/expenseProfit', {account}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
         return response.data
+    },
+    getBillsToPay: async () => {
+        let response = await api.get('/billsToPay', {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+        return response.data
+    },
+    updateBillsToPay: async (id, account, value, paymentDate, Tstatus) => {
+        let response = await api.put(`/billsToPay/${id}`, {account, value, paymentDate, Tstatus}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+    },
+    getBillsToReceive: async () => {
+        let response = await api.get('/billsToReceive', {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+        return response.data
+    },
+    getBillsId: async (id) => {
+        let response = await api.get(`/bills/${id}`, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+        return response.data
     }
 
 });

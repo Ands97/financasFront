@@ -12,7 +12,9 @@ export const TransactionProvider = ({ children }) => {
     const [showModalAccount, setShowModalAccount] = useState(false);
     const [categories, setCategories] = useState([]);
     const [categoryId, setCategoryId] = useState([]);
-    const [showModalCategory, setShowModalCategory] = useState(false)
+    const [showModalCategory, setShowModalCategory] = useState(false);
+    const [showModalBillsToPay, setShowModalBillsToPay] = useState(false);
+    const [billsToPay, setBillsToPay] = useState([]);
 
     const addNewTransaction = async (
         type,
@@ -46,6 +48,10 @@ export const TransactionProvider = ({ children }) => {
         let list = await api.getCategories();
         setCategories(list)
     }
+    const getBillsToPay = async () => {
+        const res = await api.getBillsToPay();
+        setBillsToPay(res);
+      };
 
     return (
         <TransactionContext.Provider value={{
@@ -63,7 +69,12 @@ export const TransactionProvider = ({ children }) => {
             showModalCategory,
             setShowModalCategory,
             categoryId,
-            setCategoryId
+            setCategoryId,
+            showModalBillsToPay,
+            setShowModalBillsToPay,
+            billsToPay, 
+            setBillsToPay,
+            getBillsToPay
             }}>
             {children}
         </TransactionContext.Provider>

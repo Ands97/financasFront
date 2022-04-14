@@ -1,0 +1,92 @@
+.modalBillsToPay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-family: "Montserrat", sans-serif;
+}
+.modalBillsToPay .modalArea {
+  width: 400px;
+  height: auto;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  color: #180052;
+  padding: 20px;
+  border-radius: 5px;
+}
+.modalBillsToPay .modalArea .inputEdit {
+  border-bottom: 1px solid #180052;
+  height: 20px;
+  width: 290px;
+  padding: 0px 5px;
+  padding-bottom: 5px;
+  margin-top: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
+.modalBillsToPay .modalArea .inputEdit input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  font-size: 20px;
+  color: #180052;
+}
+.modalBillsToPay .modalArea input[type=number]::-webkit-outer-spin-button,
+.modalBillsToPay .modalArea input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.modalBillsToPay .modalArea input[type=number] {
+  -moz-appearance: textfield;
+}
+.modalBillsToPay .modalArea .account {
+  margin-top: 20px;
+  width: 290px;
+}
+.modalBillsToPay .modalArea .account select {
+  border: 2px solid #003483;
+  width: 100%;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  color: #003483;
+  font-weight: bold;
+}
+.modalBillsToPay .modalArea .account select option {
+  font-weight: bold;
+}
+.modalBillsToPay .modalArea .actionButtons {
+  color: #003483;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+.modalBillsToPay .modalArea .actionButtons span {
+  font-weight: bolder;
+  cursor: pointer;
+}
+.modalBillsToPay .modalArea .actionButtons .pay {
+  background-color: #003483;
+  padding: 10px;
+  color: #FFF;
+  border-radius: 7px;
+}
+.modalBillsToPay .modalArea .actionButtons .cancel {
+  background-color: #FFF;
+  padding: 10px;
+  color: #003483;
+  border-radius: 7px;
+  border: 1px solid #003483;
+}
+
+/*# sourceMappingURL=modalBillsToPay.css.map */
