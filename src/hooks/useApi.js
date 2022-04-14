@@ -123,6 +123,9 @@ export const useApi = ()=> ({
     getBillsId: async (id) => {
         let response = await api.get(`/bills/${id}`, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
         return response.data
-    }
+    },
+    updateBillsToReceive: async (id, account, value, paymentDate, Tstatus) => {
+        let response = await api.put(`/billsToReceive/${id}`, {account, value, paymentDate, Tstatus}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+    },
 
 });

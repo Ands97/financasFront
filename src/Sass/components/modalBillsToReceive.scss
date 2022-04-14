@@ -1,0 +1,92 @@
+@import "../colors/colors.scss";
+
+.modalBillsToReceive{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Montserrat', sans-serif;
+    .modalArea{
+        width: 400px;
+        height: auto;
+        background-color: #FFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        color: $primary;
+        padding: 20px;
+        border-radius: 5px;
+        .inputEdit {
+            border-bottom: 1px solid $primary;
+            height: 20px;
+            width: 290px;
+            padding: 0px 5px;
+            padding-bottom: 5px;
+            margin-top: 20px;
+            position: relative;
+            margin-bottom: 20px;
+            input {
+                flex: 1;
+                border: 0;
+                outline: 0;
+                background-color: transparent;
+                font-family: 'Montserrat', sans-serif;
+                width: 100%;
+                font-size: 20px;
+                color: $primary;
+            }
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+                    input[type="number"]::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                    input[type="number"] {
+                        -moz-appearance: textfield;
+}
+        .account{
+            margin-top: 20px;
+            width: 290px;
+            select {
+                border: 2px solid $secondary;
+                width: 100%;
+                border-radius: 5px;
+                font-family: 'Montserrat', sans-serif;
+                color: $secondary;
+                font-weight: bold;
+                option {
+                    font-weight: bold;
+                }
+            }
+        }
+        .actionButtons{
+            color: $secondary;
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            span{
+                font-weight: bolder;
+                cursor: pointer;
+            }
+            .pay{
+                background-color: $secondary;
+                padding: 10px;
+                color: #FFF;
+                border-radius: 7px;
+            }
+            .cancel{
+                background-color: #FFF;
+                padding: 10px;
+                color: $secondary;
+                border-radius: 7px;
+                border: 1px solid $secondary;
+            }
+        }
+    }
+}
