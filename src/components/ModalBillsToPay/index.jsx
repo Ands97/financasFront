@@ -18,9 +18,14 @@ export const ModalBillsToPay = (props) => {
     }
 
     const updateBillsToPay = async () => {
-        await api.updateBillsToPay(id, account, valueField, dateField, tStatus);
-        setShowModalBillsToPay(false)
-        getBillsToPay()
+        if(account === 'Selecione a conta' || account === ''){
+            alert('Você deve selecionar a conta')
+        }else{
+            await api.updateBillsToPay(id, account, valueField, dateField, tStatus);
+            setShowModalBillsToPay(false)
+            getBillsToPay()
+        }
+        
     }
 
     useState(()=>{

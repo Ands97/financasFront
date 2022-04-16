@@ -7,19 +7,26 @@
   margin-top: 70px;
 }
 .containerB .billsToPayArea .legend {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 18% 36% 18% 18% 10%;
   font-size: 20px;
   font-weight: bold;
 }
-.containerB .billsToPayArea .billsToPayList {
+.containerB .billsToPayArea .legend div {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+}
+.containerB .billsToPayArea .billsToPayList {
+  display: grid;
+  grid-template-columns: 18% 36% 18% 18% 10%;
+  align-content: center;
   margin-top: 30px;
   padding: 15px 5px;
   border-bottom: 1px solid #cac6ce;
+}
+.containerB .billsToPayArea .billsToPayList div {
+  display: flex;
+  justify-content: center;
 }
 .containerB .billsToPayArea .billsToPayList .icon {
   cursor: pointer;

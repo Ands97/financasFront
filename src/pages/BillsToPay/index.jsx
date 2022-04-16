@@ -23,6 +23,24 @@ export const BillsToPay = () => {
     setBillsIdItem(res);
     setShowModalBillsToPay(true);
   };
+
+  const formatDate = (dateReceived) => {
+    const date = new Date(dateReceived);
+    let dateFormated = date.toLocaleDateString("pt-BR", { timeZone: "UTC" });
+    return dateFormated;
+  };
+
+  const compareTime = (dateToCompare) => {
+    const today = new Date().getTime()
+    const formated = new Date(dateToCompare).getTime()
+    if(formated < today){
+      return true
+    }else{
+      return false
+    }
+  }
+
+
   useEffect(() => {
     getBillsToPay();
   }, []);
@@ -40,9 +58,9 @@ export const BillsToPay = () => {
             <div>Pagar</div>
           </div>
           {billsToPay.map((item, index) => (
-            <div className="billsToPayList" key={index}>
+            <div className="billsToPayList" key={index} style={{color: compareTime(item.transactionDate) && 'red'}}>
               <div>
-                <span>{item.transactionDate}</span>
+                <span>{formatDate(item.transactionDate)}</span>
               </div>
               <div>
                 <span>{item.transactionDescription}</span>
@@ -51,7 +69,7 @@ export const BillsToPay = () => {
                 <span>{item.transactionCategory}</span>
               </div>
               <div>
-                <span>{item.transactionValue}</span>
+                <span>{parseFloat(item.transactionValue).toFixed(2).replace('.', ',')}</span>
               </div>
               <div className="icon" onClick={() => billsId(item._id)}>
                 <FaWallet />

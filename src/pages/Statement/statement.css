@@ -94,6 +94,20 @@
   font-size: 18px;
   color: #003483;
 }
+.statementPage .statementPageArea .loaderPosition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.statementPage .statementPageArea .loaderPosition .loader {
+  animation: is-rotating 1s infinite;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 6px solid #e5e5e5;
+  border-top-color: #003483;
+}
 .statementPage .statementPageArea .statementDescriptions {
   width: 80%;
   display: flex;
@@ -140,6 +154,17 @@
   align-items: center;
   width: 100%;
   margin-top: 30px;
+}
+
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 /*# sourceMappingURL=statement.css.map */

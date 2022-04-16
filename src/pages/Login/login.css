@@ -31,6 +31,20 @@
   padding: 10px;
   border-radius: 5px;
 }
+.login .screen .loginBox .loaderPosition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.login .screen .loginBox .loaderPosition .loader {
+  animation: is-rotating 1s infinite;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 6px solid #e5e5e5;
+  border-top-color: #003483;
+}
 .login .screen .loginBox .title {
   height: 35%;
 }
@@ -108,6 +122,17 @@
   font-weight: bold;
   padding: 5px;
   font-size: 20px;
+}
+
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
 }
 
 /*# sourceMappingURL=login.css.map */

@@ -24,6 +24,13 @@ export const BillsToReceive = () => {
     setBillsIdItem(res);
     setShowModalBillsToReceive(true);
   };
+
+  const formatDate = (dateReceived) => {
+    const date = new Date(dateReceived);
+    let dateFormated = date.toLocaleDateString("pt-BR", { timeZone: "UTC" });
+    return dateFormated;
+  };
+
   useEffect(() => {
     getBillsToReceive();
   }, []);
@@ -43,7 +50,7 @@ export const BillsToReceive = () => {
           {billsToReceive.map((item, index) => (
             <div className="billsToReceiveList" key={index}>
               <div>
-                <span>{item.transactionDate}</span>
+                <span>{formatDate(item.transactionDate)}</span>
               </div>
               <div>
                 <span>{item.transactionDescription}</span>
@@ -52,7 +59,7 @@ export const BillsToReceive = () => {
                 <span>{item.transactionCategory}</span>
               </div>
               <div>
-                <span>{item.transactionValue}</span>
+                <span>{parseFloat(item.transactionValue).toFixed(2).replace('.', ',')}</span>
               </div>
               <div className="icon" onClick={() => billsId(item._id)}>
                 <FaWallet />
