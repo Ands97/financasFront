@@ -108,3 +108,18 @@
             
         }
     }
+    @media screen and (max-width: 500px){
+        .account{
+            .accountArea{
+                .inputArea{
+                    .inputAccount{
+                        width: 60%;
+                    }
+                    button{
+                        width: 60%;
+                    }
+                }
+                
+            }
+        }
+    }

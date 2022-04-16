@@ -166,5 +166,40 @@
     transform: rotate(1turn);
   }
 }
+@media screen and (max-width: 500px) {
+  .statementPage .inputArea {
+    flex-direction: column;
+    width: 100%;
+  }
+  .statementPage .inputArea .input {
+    width: 80%;
+  }
+  .statementPage .inputArea .selectType {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .statementPage .inputArea .monthInput {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  .statementPage .statementPageArea .statementDescriptions {
+    flex-direction: column;
+    height: 150px;
+  }
+  .statementPage .statementPageArea .statementDescriptions .date {
+    border: none;
+    width: 80%;
+  }
+  .statementPage .statementPageArea .statementDescriptions .description {
+    width: 80%;
+    border: none;
+    justify-content: center;
+  }
+  .statementPage .statementPageArea .statementDescriptions .value {
+    width: 80%;
+    border: none;
+    justify-content: center;
+  }
+}
 
 /*# sourceMappingURL=statement.css.map */

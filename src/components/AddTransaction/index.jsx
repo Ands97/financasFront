@@ -95,6 +95,15 @@ export const AddTransaction = () => {
     }
   };
 
+  const screenMobile = () => {
+    const screenWidth = window.screen.width
+    if(screenWidth < '500'){
+      return '80vw'
+    }else{
+      return '25vw'
+    }
+  }
+ 
   //Effects
   useEffect(() => {
     getAccounts();
@@ -108,7 +117,7 @@ export const AddTransaction = () => {
     >
       <div
         className="modal"
-        style={{ width: showAddTransaction ? "25vw" : "0px" }}
+        style={{ width: showAddTransaction ? screenMobile() : "0px" }}
       >
         <div className="headerTransaction">
           <div className="closeIcon" onClick={closeMenu}>

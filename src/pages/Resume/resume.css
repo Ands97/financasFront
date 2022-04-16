@@ -217,8 +217,19 @@
     align-items: center;
     height: 520px;
   }
-  .body .moreInfo .chart .chartOriginal {
-    width: 90%;
+  .body .moreInfo .chart .profitArea .profit {
+    width: 50%;
+  }
+  .body .moreInfo .chart .profitArea .profit select {
+    border: 2px solid #003483;
+    width: 100%;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    color: #003483;
+    font-weight: bold;
+  }
+  .body .moreInfo .chart .profitArea .profit select option {
+    font-weight: bold;
   }
   .body .moreInfo .statement {
     width: 96%;

@@ -59,7 +59,7 @@ export const BillsToReceive = () => {
                 <span>{item.transactionCategory}</span>
               </div>
               <div>
-                <span>{parseFloat(item.transactionValue).toFixed(2).replace('.', ',')}</span>
+                <span>R$ {parseFloat(item.transactionValue).toFixed(2).replace('.', ',')}</span>
               </div>
               <div className="icon" onClick={() => billsId(item._id)}>
                 <FaWallet />

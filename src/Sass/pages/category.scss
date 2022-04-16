@@ -166,3 +166,20 @@
             
         }
     }
+    @media screen and (max-width: 500px){
+        .category{
+            .categoryArea{
+                .inputArea{
+                    .inputCategory{
+                        width: 60%;
+                    }
+                    button{
+                        width: 60%;
+                    }
+                }
+                
+            }
+            
+        }
+        
+    }

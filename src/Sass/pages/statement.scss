@@ -8,7 +8,6 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-
             .input {
                 border-bottom: 1px solid $primary;
                 width: 20%;
@@ -176,4 +175,45 @@
         to{
             transform: rotate(1turn);
         }
+    }
+    @media screen and (max-width: 500px){
+       .statementPage{
+           .inputArea {
+               flex-direction: column;
+               width: 100%;
+               .input{
+                   width: 80%;
+               }
+               .selectType{
+                   width: 80%;
+                   margin-bottom: 20px;
+               }
+               .monthInput{
+                   width: 80%;
+                   margin-bottom: 20px;
+               }
+           }
+           .statementPageArea{
+               .statementDescriptions{
+                   flex-direction: column;
+                   height: 150px;
+                   .date{
+                        border: none;
+                        width: 80%;
+                   }
+                   .description {
+                       width: 80%;
+                       border: none;
+                       justify-content: center;
+                   }
+                   .value{
+                        width: 80%;
+                        border: none;
+                        justify-content: center;
+                   }
+                   
+               }
+           }
+       }
+        
     }

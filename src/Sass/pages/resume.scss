@@ -224,8 +224,22 @@
                 flex-direction: column;
                 align-items: center;
                 height: 520px;
-                .chartOriginal{
-                    width: 90%;
+                .profitArea{
+                    .profit {
+                        width: 50%;
+        
+                        select {
+                            border: 2px solid $secondary;
+                            width: 100%;
+                            border-radius: 5px;
+                            font-family: 'Montserrat', sans-serif;
+                            color: $secondary;
+                            font-weight: bold;
+        
+                            option {
+                                font-weight: bold;
+                            }
+                        }}
                 }
             }
             .statement{

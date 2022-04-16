@@ -1,108 +1,130 @@
 @import "../colors/colors.scss";
 
-.header{
+.header {
     font-family: 'Montserrat', sans-serif;
     width: 100vw;
     box-shadow: 0 1px 5px 0px #cac6ce;
-    .container{
+
+    .container {
         margin: 0px 80px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .menuMobile{
+
+        .menuMobileIcon {
             display: none;
         }
-        .navigation{
+
+        .menuMobile {
+            display: none;
+        }
+
+        .navigation {
             display: flex;
             justify-content: space-around;
             align-items: center;
             width: 30vw;
-            .payments{
+
+            .payments {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
-                p{
+
+                p {
                     color: #180052;
                 }
             }
-                .paymentOptions{
-                    overflow: hidden;
-                    transition: all ease 0.3s;
-                    position: absolute;
-                    top: 70px;
-                    right: 330px;
-                    padding: 3px 20px;
-                    ul{
-                        box-shadow: 0 1px 5px 0px #cac6ce;
-                        background-color: #FFF;
-                        padding: 10px;
+
+            .paymentOptions {
+                overflow: hidden;
+                transition: all ease 0.3s;
+                position: absolute;
+                top: 70px;
+                right: 330px;
+                padding: 3px 20px;
+
+                ul {
+                    box-shadow: 0 1px 5px 0px #cac6ce;
+                    background-color: #FFF;
+                    padding: 10px;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    li {
+                        cursor: pointer;
+                        list-style-type: none;
+                        border-bottom: 1px solid #d7d5d8;
+                        padding: 5px;
                         display: flex;
-                        justify-content: center;
-                        flex-direction: column;
-                        li{
-                            cursor: pointer;
-                            list-style-type: none;
-                            border-bottom: 1px solid #d7d5d8;
-                            padding: 5px;
-                            display: flex;
-                            align-items: center;
-                        a{
+                        align-items: center;
+
+                        a {
                             text-decoration: none;
                         }
                     }
-                    
+
                 }
             }
-            .financialControl{
-                .financialControlClick{
+
+            .financialControl {
+                .financialControlClick {
                     display: flex;
                     align-items: center;
                     cursor: pointer;
-                    p{
+
+                    p {
                         color: #180052;
                     }
                 }
-                .financialOptions{
+
+                .financialOptions {
                     overflow: hidden;
                     transition: all ease 0.3s;
                     position: absolute;
                     top: 70px;
                     right: 190px;
                     padding: 3px 20px;
-                    ul{
+
+                    ul {
                         box-shadow: 0 1px 5px 0px #cac6ce;
                         background-color: #FFF;
                         padding: 10px;
                         display: flex;
                         justify-content: center;
-                        li{
+
+                        li {
                             cursor: pointer;
                             list-style-type: none;
                             border-bottom: 1px solid #d7d5d8;
                             padding: 5px;
                             display: flex;
                             align-items: center;
-                            a{
+
+                            a {
                                 text-decoration: none;
                             }
                         }
                     }
                 }
             }
-            .profile{
+
+            .profile {
                 cursor: pointer;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                .account{
+
+                .account {
                     display: flex;
                     align-items: center;
                 }
-                
-                
+
+
             }
-            .logoutBlock{
+
+            .logoutBlock {
                 position: absolute;
                 top: 73px;
                 right: 70px;
@@ -115,32 +137,78 @@
                 width: 90px;
                 transition: all ease 0.3s;
                 cursor: pointer;
-                span{
+
+                span {
                     display: flex;
-                    align-items: center;   
+                    align-items: center;
                 }
             }
         }
-        img{
+
+        img {
             width: 100px;
         }
     }
-    
+
 }
 
-@media screen and (max-width: 820px){
-    .header{
+@media screen and (max-width: 500px) {
+    .header {
         width: 100%;
-        .container{
+
+        .container {
             margin: 0;
-            .menuMobile{
+
+            .menuMobileIcon {
                 display: flex;
                 margin-right: 30px;
             }
-            .navigation{
+
+            .menuMobile {
+                display: flex;
+                overflow: hidden;
+                position: fixed;
+                top: 100px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 900;
+                justify-content: flex-end;
+                align-items: flex-start;
+                .navigationMobile{
+                    margin-right: 30px;
+                    width: 0px;
+                    height: 50vh;
+                    background-color: #FFF;
+                    transition: all ease 0.5s;
+                    padding: 20px;
+                    font-size: larger;
+                    overflow-x: hidden;
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        align-items: flex-start;
+                        height: 100%;
+                        li{
+                            list-style-type: none;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            a{
+                                text-decoration: none;
+                                color: $secondary;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+
+            .navigation {
                 display: none;
             }
         }
     }
-    
+
 }

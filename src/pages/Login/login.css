@@ -134,5 +134,10 @@
     transform: rotate(1turn);
   }
 }
+@media screen and (max-width: 500px) {
+  .login .screen .loginBox {
+    width: 320px;
+  }
+}
 
 /*# sourceMappingURL=login.css.map */

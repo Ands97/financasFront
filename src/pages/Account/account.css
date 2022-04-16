@@ -106,4 +106,13 @@
   font-weight: bold;
 }
 
+@media screen and (max-width: 500px) {
+  .account .accountArea .inputArea .inputAccount {
+    width: 60%;
+  }
+  .account .accountArea .inputArea button {
+    width: 60%;
+  }
+}
+
 /*# sourceMappingURL=account.css.map */
