@@ -3,7 +3,7 @@ import { FaWallet } from "react-icons/fa";
 import "./billsToReceive.css";
 import { useApi } from "../../hooks/useApi";
 import { useContext, useEffect, useState } from "react";
-
+import DeleteIcon from '@material-ui/icons/Delete';
 import { TransactionContext } from "../../contexts/TransactionContext";
 import { ModalBillsToReceive } from "../../components/ModalBillsToReceive";
 
@@ -25,6 +25,11 @@ export const BillsToReceive = () => {
     setShowModalBillsToReceive(true);
   };
 
+  const deleteTransaction = async (id) => {
+    const res = await api.deleteTransaction(id)
+    getBillsToReceive()
+  }
+
   const formatDate = (dateReceived) => {
     const date = new Date(dateReceived);
     let dateFormated = date.toLocaleDateString("pt-BR", { timeZone: "UTC" });
@@ -33,7 +38,7 @@ export const BillsToReceive = () => {
 
   useEffect(() => {
     getBillsToReceive();
-  }, []);
+  }, [deleteTransaction]);
   return (
     <>
       <Header />
@@ -46,6 +51,7 @@ export const BillsToReceive = () => {
             <div>Categoria</div>
             <div>Valor</div>
             <div>Receber</div>
+            <div>Deletar</div>
           </div>
           {billsToReceive.map((item, index) => (
             <div className="billsToReceiveList" key={index}>
@@ -63,6 +69,9 @@ export const BillsToReceive = () => {
               </div>
               <div className="icon" onClick={() => billsId(item._id)}>
                 <FaWallet />
+              </div>
+              <div className="icon" onClick={() => deleteTransaction(item._id)}>
+                <DeleteIcon />
               </div>
             </div>
           ))}

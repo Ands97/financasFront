@@ -107,10 +107,7 @@
 }
 .body .moreInfo .statement .statementArea .statementInfo span {
   margin-right: 10px;
-  width: 25%;
-}
-.body .moreInfo .statement .statementArea .statementInfo .description {
-  width: 100%;
+  width: 20%;
 }
 .body .moreInfo .statement .statementArea .statementInfo .purchaseInfo {
   display: flex;
@@ -122,6 +119,9 @@
   width: 70%;
   font-size: 12px;
 }
+.body .moreInfo .statement .statementArea .statementInfo .purchaseInfo span {
+  width: 100%;
+}
 .body .moreInfo .statement .statementArea .statementInfo .purchaseData {
   display: flex;
   flex-direction: column;
@@ -129,7 +129,7 @@
   border-left: 1px solid #cac6ce;
   margin-right: 10px;
   padding: 5px;
-  width: 15%;
+  width: 20%;
 }
 .body .moreInfo .statement .statementArea .statementInfo .purchaseData .account {
   font-size: 12px;

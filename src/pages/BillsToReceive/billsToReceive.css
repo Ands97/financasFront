@@ -5,10 +5,14 @@
 .containerB .billsToReceiveArea {
   height: auto;
   margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
 }
 .containerB .billsToReceiveArea .legend {
   display: grid;
-  grid-template-columns: 18% 36% 18% 18% 10%;
+  grid-template-columns: 10% 36% 18% 16% 10% 10%;
   font-size: 20px;
   font-weight: bold;
 }
@@ -18,7 +22,7 @@
 }
 .containerB .billsToReceiveArea .billsToReceiveList {
   display: grid;
-  grid-template-columns: 18% 36% 18% 18% 10%;
+  grid-template-columns: 10% 36% 18% 16% 10% 10%;
   align-content: center;
   margin-top: 30px;
   padding: 15px 5px;
@@ -30,6 +34,9 @@
 }
 .containerB .billsToReceiveArea .billsToReceiveList .icon {
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 500px) {

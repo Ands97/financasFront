@@ -1,5 +1,6 @@
 import Header from "../../components/Header";
 import { FaWallet } from "react-icons/fa";
+import DeleteIcon from '@material-ui/icons/Delete';
 import "./billsToPay.css";
 import { useApi } from "../../hooks/useApi";
 import { useContext, useEffect, useState } from "react";
@@ -24,6 +25,10 @@ export const BillsToPay = () => {
     setShowModalBillsToPay(true);
   };
 
+  const deleteTransaction = async (id) => {
+    const res = await api.deleteTransaction(id)
+    getBillsToPay()
+  }
   const formatDate = (dateReceived) => {
     const date = new Date(dateReceived);
     let dateFormated = date.toLocaleDateString("pt-BR", { timeZone: "UTC" });
@@ -43,7 +48,7 @@ export const BillsToPay = () => {
 
   useEffect(() => {
     getBillsToPay();
-  }, []);
+  }, [deleteTransaction]);
   return (
     <>
       <Header />
@@ -56,6 +61,7 @@ export const BillsToPay = () => {
             <div>Categoria</div>
             <div>Valor</div>
             <div>Pagar</div>
+            <div>Deletar</div>
           </div>
           {billsToPay.map((item, index) => (
             <div className="billsToPayList" key={index} style={{color: compareTime(item.transactionDate) && 'red'}}>
@@ -73,6 +79,9 @@ export const BillsToPay = () => {
               </div>
               <div className="icon" onClick={() => billsId(item._id)}>
                 <FaWallet />
+              </div>
+              <div className="icon" onClick={() => deleteTransaction(item._id)}>
+                <DeleteIcon/>
               </div>
             </div>
           ))}

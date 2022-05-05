@@ -5,47 +5,57 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({children})=>{
     
-    const [token, setToken] = useState(null);
-    const [username, setUsername] = useState('')
+    const [user, setUser] = useState(null)
     const api = useApi()
 
 
-    useEffect(() => {
-            const storageData = localStorage.getItem('authToken');
-            setToken(storageData)
-    }, [])
     const signin = async (email, password) => {
         const data = await api.signin(email, password);
-        if(data.token){
+        if (data.token && data.user) {
             setToken(data.token);
-            setTokenLocal(data.token)
-            setUsername(data.username)
-            return true
+            setUser(data.user);
         }
-        return false;
-    }
+    };
+
+    const signout = () => {
+        setUser(null);
+        setToken("");
+    };
+
+    const setToken = (token) => {
+        localStorage.setItem("authToken", token);
+    };
 
     const register = async (name, email, password) => {
         const data = await api.register(name, email, password);
         if(data.token){
             setToken(data.token);
-            setTokenLocal(data.token)
-            setUsername(data.username)
+            setUser(data.user)
             return true
         }
         setToken(null)
     }
 
-    const setTokenLocal = (token) => {
-        localStorage.setItem('authToken', token)
-    }
+    const validateToken = async () => {
+        const storageData = localStorage.getItem("authToken");
+        if (storageData) {
+            const data = await api.validateToken(storageData);
+            if (data.user) {
+                setUser(data.user);
+            }
+        }
+    };
+    
+    useEffect(() => {
+        validateToken()
+}, [])
 
     return(
         <AuthContext.Provider value={{
-           token,
            signin,
            register,
-           username
+           user,
+           signout
         }}>
             {children}
         </AuthContext.Provider>

@@ -37,8 +37,12 @@ export const useApi = ()=> ({
                 account,
                 acountDestination
             },
-            {headers:{'Authorization': `Bearer ${token}`}}
+            {headers:{'Authorization': `Bearer ${localStorage.getItem('authToken')}`}}
             )
+    },
+    validateToken: async (token) => {
+        const response = await api.post("/validateToken", { token });
+        return response.data;
     },
     statementResumeApp: async () => {
         let response = await api.get('/statementResume', {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
@@ -127,5 +131,11 @@ export const useApi = ()=> ({
     updateBillsToReceive: async (id, account, value, paymentDate, Tstatus) => {
         let response = await api.put(`/billsToReceive/${id}`, {account, value, paymentDate, Tstatus}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
     },
+    reverseTransaction: async (id) => {
+        let response = await api.put(`/reverseTransaction/${id}`, {Tstatus: false}, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+    },
+    deleteTransaction: async (id) => {
+        let response = await api.delete(`/deleteTransaction/${id}`, {headers: {'Authorization': `Bearer ${localStorage.getItem('authToken')}`}})
+    }
 
 });

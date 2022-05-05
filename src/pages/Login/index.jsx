@@ -1,30 +1,34 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import { useApi } from '../../hooks/useApi';
 import './login.css';
 
 const Login = () => {
 
     const auth = useContext(AuthContext);
+    const api = useApi();
     const navigate = useNavigate();
+    
+  
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showLoader, setShowLoader] = useState(false)
 
-    const handleLogin = async (e) => {
-        e.preventDefault()
-        if (email && password) {
-            setShowLoader(true)
-            const isLogged = await auth.signin(email, password);
-            setShowLoader(false)   
-            if (isLogged) {
-                navigate('/resume')
-            } else {
-                alert('email ou senha incorreto!')
-            }
-        }
-    }
+    const handleLogin = async () => {
+      if (email && password) {
+          setShowLoader(true);
+          const res = await api.signin(email, password);
+          await auth.signin(email, password);
+          setShowLoader(false);
+          if (res.status) {
+              navigate("/resume");
+          } else {
+              alert('Email ou senha incorreto')
+          }
+      }
+  };
 
     return (
       <div className="login">

@@ -52,8 +52,8 @@ const Header = () => {
     }
   };
 
-  const logout = () => {
-    localStorage.removeItem("authToken");
+  const logout = async () => {
+    await auth.signout()
     window.location.href = window.location.href;
   };
 
@@ -67,7 +67,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      {auth.token && (
+      {auth.user && (
         <div className="container">
           <div className="logo">
             <Link to="/resume">
@@ -173,7 +173,7 @@ const Header = () => {
                   style={{ height: showOptionLogout ? "30px" : "0px" }}
                 >
                   <AccountCircleIcon style={{ color: "#003483" }} />{" "}
-                  {auth.username}
+                  {auth.user.name}
                 </span>
               </div>
             </div>

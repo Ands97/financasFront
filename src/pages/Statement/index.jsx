@@ -2,6 +2,7 @@ import Header from "../../components/Header";
 import "./statement.css";
 import SearchIcon from "@material-ui/icons/Search";
 import { GrUpdate } from "react-icons/gr";
+import { ImCancelCircle } from 'react-icons/im'
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useContext, useEffect, useState } from "react";
@@ -72,6 +73,10 @@ export const Statement = () => {
     let dateFormated = date.toLocaleDateString("pt-BR", { timeZone: "UTC" });
     return dateFormated;
   };
+  const handleTransaction = async (id) => {
+    await api.reverseTransaction(id)
+    setFunctions()
+  }
   const profit = income - expense;
 
   useEffect(() => {
@@ -146,11 +151,8 @@ export const Statement = () => {
                 R${item.transactionValue.toFixed(2).replace(".", ",")}
               </div>
               <div className="statementIconsPage">
-                <div className="delete">
-                  <DeleteIcon style={{ color: "#003483" }} />
-                </div>
-                <div className="edit">
-                  <EditIcon style={{ color: "#003483" }} />
+                <div className="delete" onClick={()=>handleTransaction(item._id)}>
+                  <ImCancelCircle style={{color: "#180052"}}/>
                 </div>
               </div>
             </div>
